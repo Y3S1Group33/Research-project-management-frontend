@@ -33,7 +33,7 @@ function NavBar() {
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/panelMember/chart">
+                <a className="nav-link" aria-current="page" href="/panelMember/chat">
                   Teams
                 </a>
               </li>

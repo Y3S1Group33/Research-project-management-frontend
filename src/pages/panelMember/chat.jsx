@@ -1,0 +1,80 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+
+function Chat() {
+  const [chatData, setChatData] = useState([]);
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/api/panelChat`)
+      .then((response) => response.json())
+      .then((responseData) => {
+        setChatData(responseData);
+      });
+    console.log(chatData);
+  }, []);
+
+  let data = {
+    userId: "u001",
+    message: message,
+    date: new Date(),
+  };
+
+  let submitMessage = async (e) => {
+    e.preventDefault();
+    try {
+      let res = await axios.post("http://localhost:5000/api/panelChat", data);
+      if (res) {
+        console.log(data);
+        window.location.href = "/panelMember/chat";
+      } else {
+        alert("Some error occured");
+      }
+    } catch (err) {
+      alert("Error occured in the process");
+      console.log(err);
+    }
+  };
+
+  return (
+    <div>
+      <br></br>
+      <div class="container">
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="enter message"
+            aria-label="Recipient's username"
+            aria-describedby="basic-addon2"
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              onClick={submitMessage}
+            >
+              Add message
+            </button>
+          </div>
+        </div>
+        <br></br>
+        <div class="container">
+          <div class="card" style={{ maxHeight: "1500px" }}>
+            {chatData.map((item, index) => {
+              return (
+                <p class="card-body">
+                  {index + 1} ( {item.userId} ) {item.message}
+                </p>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Chat;
