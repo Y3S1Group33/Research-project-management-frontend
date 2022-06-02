@@ -20,7 +20,7 @@ export default function dashboard() {
     <div class="card h-100">
       <img src={researchIMG} class="card-img-top" alt="..." />
       <div class="card-body">
-        <h5 class="card-title">Researchs</h5>
+        <h5 class="card-title">Researches</h5>
         <p class="card-text">Research card body</p>
       </div>
     </div>
@@ -29,7 +29,7 @@ export default function dashboard() {
     <div class="card h-100">
       <img src={submissionsIMG} class="card-img-top" alt="..." />
       <div class="card-body">
-        <h5 class="card-title">Subbmitions</h5>
+        <h5 class="card-title">Submissions</h5>
         <p class="card-text">Submissions card body</p>
       </div>
     </div>
