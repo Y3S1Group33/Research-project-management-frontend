@@ -127,7 +127,7 @@ function TopicsEvaluate() {
                         <div class="modal-body">
                           <label>Enter the Feedback</label>
                           <input
-                            placeholder={item.feedback}
+                            placeholder="enter your feedback"
                             type="text"
                             className="form-control"
                             id="roomType"
