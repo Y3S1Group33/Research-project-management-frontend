@@ -111,8 +111,7 @@ function TopicsEvaluate() {
                       <div class="modal-content">
                         <div class="modal-header">
                           <h5 class="modal-title" id="exampleModalLongTitle">
-                            Evaluate Topic Selection for group id -{" "}
-                            {item.studentGroupId}
+                            Evaluate Topic Selection
                           </h5>
                           <button
                             type="button"
