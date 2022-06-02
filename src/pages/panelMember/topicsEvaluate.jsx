@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 
 function TopicsEvaluate() {
 
-const [topicDetails, setTopicDetails] = useState("");
+const [topicDetails, setTopicDetails] = useState([]);
+const [feedback, setFeedback] = useState("");
 
 useEffect(() => {
         fetch(`http://localhost:5000/api/researchTopic`)
@@ -12,6 +13,10 @@ useEffect(() => {
           });
         console.log(topicDetails);
       }, []);
+
+      let submitFeedback =() =>{
+          
+      }
 
     return (
         <div className="container">
@@ -31,9 +36,10 @@ useEffect(() => {
     </tr>
   </thead>
   <tbody>
-  {topicDetails.map((item) => {
+  {topicDetails.map((item, index) => {
             return (
               <tr>
+                   <td>{index+1}</td>
                 <td>{item.studentGroupId}</td>
                 <td>{item.topic}</td>
                 <td>{item.researchPanelId}</td>
@@ -42,10 +48,37 @@ useEffect(() => {
                 <td>{item.feedback}</td>
                 <td>{item.status}</td>
                 <td>
-                  <button  className="btn btn-success">
-                  <Link to={`/adminUpdateReservations/${item.id}`} className="btn btn-success">View Details
-                            </Link>
-                  </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Add topic evaluation
+</button>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Evaluate Topic Selection for group id {item.studentGroupId}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <label >Enter the Feedback</label>
+          <input
+            placeholder="Enter the Feedback"
+            type="text"
+            className="form-control"
+            id="roomType"
+            onChange={(e) => setFeedback(e.target.value)}
+            required />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onClick={submitFeedback}>Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
                   
                 </td>
               </tr>
