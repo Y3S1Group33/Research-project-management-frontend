@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 function TopicsEvaluate() {
 
-    
+const [topicDetails, setTopicDetails] = useState("");
 
+useEffect(() => {
+        fetch(`http://localhost:5000/api/researchTopic`)
+          .then((response) => response.json())
+          .then((responseData) => {
+            setTopicDetails(responseData);
+          });
+        console.log(topicDetails);
+      }, []);
 
     return (
         <div className="container">
@@ -12,62 +20,39 @@ function TopicsEvaluate() {
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Student Group ID</th>
+      <th scope="col">Topic</th>
+      <th scope="col">Research Panel ID</th>
+      <th scope="col">Supervisor</th>
+      <th scope="col">Co-Superviso</th>
+      <th scope="col">Feedback</th>
+      <th scope="col">Status</th>
+      <th scope="col">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+  {topicDetails.map((item) => {
+            return (
+              <tr>
+                <td>{item.studentGroupId}</td>
+                <td>{item.topic}</td>
+                <td>{item.researchPanelId}</td>
+                <td>{item.supervisor}</td>
+                <td>{item.coSupervisor}</td>
+                <td>{item.feedback}</td>
+                <td>{item.status}</td>
+                <td>
+                  <button  className="btn btn-success">
+                  <Link to={`/adminUpdateReservations/${item.id}`} className="btn btn-success">View Details
+                            </Link>
+                  </button>
+                  
+                </td>
+              </tr>
+            );
+          })}
   </tbody>
-</table>
 
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
 </table>
         </div>
     )
