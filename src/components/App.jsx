@@ -6,6 +6,8 @@ import NavBar from "./NavBar/navBar"
 
 //panel member
 import TopicsEvaluate from '../pages/panelMember/topicsEvaluate'
+import StudentGroup from '../pages/panelMember/student/studentGroup';
+import ResearchTopic from '../pages/panelMember/student/researchTopic';
 import Reference from '../pages/panelMember/reference'
 import PanelMemberDashboard from '../pages/panelMember/dashboard'
 import PanelMemberChat from '../pages/panelMember/chat'
@@ -15,7 +17,7 @@ import StudentSignUp from "../pages/student/StudentSignUp";
 import StaffSignUp from "../pages/staff/StaffSignUp";
 import SignUpChoose from "../pages/home/SignUpChoose";
 import StudentMakeSubmission from "../pages/student/StudentMakeSubmission";
-import AdminCreateSubmission from "../pages/staff/AdminCreateSubmission";
+import AdminCreateSubmission from "../pages/admin/AdminCreateSubmission";
 
 
 //supervisor co supervisor
@@ -25,6 +27,9 @@ import SupervisorMarkingSchemes from "../pages/supervisor/supervisorMarkingSchem
 import TeamChat from "../pages/supervisor/teamChat";
 import TopicsConfirmation from "../pages/supervisor/topicsConfirmation";
 import SupervisorDocuments from "../pages/supervisor/supervisorDocuments";
+import ResearchProject from '../pages/panelMember/student/researchProject';
+import SetPanelMembers from "../pages/staff/SetPannelMembers";
+import DisplayStudentsView from "../pages/admin/DisplayStudentsView";
 
 
 export default function App() {
@@ -40,6 +45,13 @@ export default function App() {
               <Route exact path="/panelMember/dashboard" element={<PanelMemberDashboard />} />
               <Route exact path="/panelMember/chat" element={<PanelMemberChat />} />
               <Route exact path="/panelMember/presentation" element={<PresentationEvaluate />} />
+              
+              {/* Student Routes */}
+              
+              <Route exact path="/student/studentGroup" element={<StudentGroup />} />
+              <Route exact path="/student/topicRequest" element={<ResearchTopic />} />
+              <Route exact path="/student/researchProject" element={<ResearchProject />} />
+              <Route exact path="/panelMember/setPanelMember" element={<SetPanelMembers />}  />
 
                   {/*Supervisor-Co Supervisor routes*/}
               <Route exact path="/supervisor/dashboard" element={<SupervisorDashboard />} />
@@ -57,8 +69,10 @@ export default function App() {
               <Route exact path="/makeSubmission" element={<StudentMakeSubmission/>}/>
               <Route exact path="/createSubmission" element={<AdminCreateSubmission/>}/>
               <Route exact path="/login" element={<Login/>}/>
+                  <Route exact path="/admin/viewStudents" element={<DisplayStudentsView/>}/>
 
               </Routes>
+
           </Router>
     </div>
   )
