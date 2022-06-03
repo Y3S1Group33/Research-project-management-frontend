@@ -154,6 +154,41 @@ let handleLogout = () =>{
 
             </ul>
             )}
+            {/*admin-student-staff*/}
+
+            {(loggedUser == "admin") && (
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/admin/dashboard">
+                      Dashboard
+                    </a>
+                  </li>
+
+                  <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/admin/viewStudents">
+                      Student Details
+                    </a>
+                  </li>
+
+                  <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/panelMember/topics">
+                      Staff Details
+                    </a>
+                  </li>
+
+                  <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/panelMember/presentation">
+                      Create Submissions
+                    </a>
+                  </li>
+
+                  <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/panelMember/reference">
+                      Create Marking Schemas
+                    </a>
+                  </li>
+                </ul>
+            )}
 
             
             <div className="dropdown">

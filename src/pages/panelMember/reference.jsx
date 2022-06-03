@@ -10,6 +10,15 @@ function Reference() {
 
   const [referenceData, setReferenceData] = useState([]);
 
+  const [loggedUser, setLoggedUser] = useState("");
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (user) {
+      setLoggedUser(user[0].staffId);
+    }
+  }, []);
+
   useEffect(() => {
     fetch(`https://floating-meadow-01028.herokuapp.com/api/reference`)
       .then((response) => response.json())
@@ -32,6 +41,7 @@ function Reference() {
     type: type,
     title: title,
     description: refernce,
+    panelId: loggedUser,
   };
 
   let submitReference = async (e) => {
@@ -43,7 +53,7 @@ function Reference() {
       );
       if (res) {
         console.log(data);
-        alert("Reference added successfully");
+        alert("Reference updated successfully");
         window.location.href = "/panelMember/reference";
       } else {
         alert("Some error occured");
@@ -56,7 +66,9 @@ function Reference() {
   const deleteReference = () => {
     if (window.confirm("Do you want to delete record")) {
       axios
-        .delete(`https://floating-meadow-01028.herokuapp.com/api/reference/${id}`)
+        .delete(
+          `https://floating-meadow-01028.herokuapp.com/api/reference/${id}`
+        )
         .then((res) => {
           alert("Deleted successfuly");
           window.location.href = "/panelMember/reference";
@@ -69,12 +81,14 @@ function Reference() {
   let addReferences = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("https://floating-meadow-01028.herokuapp.com/api/reference", data);
+      let res = await axios.post(
+        "https://floating-meadow-01028.herokuapp.com/api/reference",
+        data
+      );
       if (res) {
         console.log(data);
         alert("Reference created successfully");
         window.location.href = "/panelMember/reference";
-        
       } else {
         alert("Some error occured");
       }
@@ -83,6 +97,14 @@ function Reference() {
       console.log(err);
     }
   };
+
+  const count = [];
+
+  for (let i = 0; i < referenceDetails.length; i++) {
+    if (referenceDetails[i].panelId === loggedUser) {
+      count.push(referenceDetails[i]);
+    }
+  }
 
   return (
     <div className="container">
@@ -99,13 +121,13 @@ function Reference() {
           </tr>
         </thead>
         <tbody>
-          {referenceDetails.map((item, index) => {
+          {count.map((item, index) => {
             return (
               <tr>
                 <td>{index + 1}</td>
                 <td>{item.type}</td>
                 <td>{item.title}</td>
-                <td>{item.description}</td>
+                <td>{item.description}<a href={item.description}>click here</a></td>
                 <td>
                   <button
                     type="button"
@@ -215,97 +237,93 @@ function Reference() {
       </table>
 
       <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-toggle="modal"
-                    data-target="#addReferences"
-                    onClick={() => setID(item._id)}
-                  >
-                    Add References
-                  </button>
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#addReferences"
+        onClick={() => setID(item._id)}
+      >
+        Add References
+      </button>
 
-                  <div
-                    class="modal fade"
-                    id="addReferences"
-                    tabindex="-1"
-                    role="dialog"
-                    aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true"
-                  >
-                    <div
-                      class="modal-dialog modal-dialog-centered"
-                      role="document"
-                    >
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLongTitle">
-                            Add references
-                          </h5>
-                          <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                          >
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
+      <div
+        class="modal fade"
+        id="addReferences"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Add references
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
 
-                        <div class="modal-body">
-                          <label>Enter Type</label>
-                          <input
-                            placeholder="enter your type"
-                            type="text"
-                            className="form-control"
-                            id="roomType"
-                            onChange={(e) => setType(e.target.value)}
-                            required
-                          />
-                        </div>
+            <div class="modal-body">
+              <label>Enter Type</label>
+              <input
+                placeholder="enter your type"
+                type="text"
+                className="form-control"
+                id="roomType"
+                onChange={(e) => setType(e.target.value)}
+                required
+              />
+            </div>
 
-                        <div class="modal-body">
-                          <label>Enter Title</label>
-                          <input
-                            placeholder="enter your title"
-                            type="text"
-                            className="form-control"
-                            id="roomType"
-                            onChange={(e) => setTitle(e.target.value)}
-                            required
-                          />
-                        </div>
+            <div class="modal-body">
+              <label>Enter Title</label>
+              <input
+                placeholder="enter your title"
+                type="text"
+                className="form-control"
+                id="roomType"
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
+            </div>
 
-                        <div class="modal-body">
-                          <label>Enter references</label>
-                          <input
-                            placeholder="enter your description"
-                            type="text"
-                            className="form-control"
-                            id="roomType"
-                            onChange={(e) => setReferences(e.target.value)}
-                            required
-                          />
-                        </div>
-                        <div class="modal-footer">
-                          <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-dismiss="modal"
-                          >
-                            Close
-                          </button>
-                          <button
-                            type="button"
-                            class="btn btn-primary"
-                            onClick={addReferences}
-                          >
-                            Save
-                          </button>
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            <div class="modal-body">
+              <label>Enter references</label>
+              <input
+                placeholder="enter your description"
+                type="text"
+                className="form-control"
+                id="roomType"
+                onChange={(e) => setReferences(e.target.value)}
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                onClick={addReferences}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

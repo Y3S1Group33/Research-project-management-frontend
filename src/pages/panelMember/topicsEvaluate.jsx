@@ -5,8 +5,16 @@ function TopicsEvaluate() {
   const [topicDetails, setTopicDetails] = useState([]);
   const [feedback, setFeedback] = useState("");
   const [id, setID] = useState("");
+  const [loggedUser, setLoggedUser] = useState("");
 
   const [topicData, setTopicData] = useState([]);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (user) {
+      setLoggedUser(user[0].staffId);
+    }
+  }, []);
 
   useEffect(() => {
     fetch(`https://floating-meadow-01028.herokuapp.com/api/researchTopic`)
@@ -55,6 +63,14 @@ function TopicsEvaluate() {
     }
   };
 
+  const topicRequets = [];
+
+  for (let i = 0; i < topicDetails.length; i++) {
+    if (topicDetails[i].researchPanelId === loggedUser) {
+      topicRequets.push(topicDetails[i]);
+    }
+  }
+
   return (
     <div className="container">
       <br></br>
@@ -74,7 +90,7 @@ function TopicsEvaluate() {
           </tr>
         </thead>
         <tbody>
-          {topicDetails.map((item, index) => {
+          {topicRequets.map((item, index) => {
             return (
               <tr>
                 <td>{index + 1}</td>
