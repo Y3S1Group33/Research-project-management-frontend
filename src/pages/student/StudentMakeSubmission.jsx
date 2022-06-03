@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import ImageUpload from "./ImageUpload";
 import axios from "axios";
+import { Typography } from '@material-ui/core';
 
 
 const StudentMakeSubmission = () => {
@@ -57,8 +58,9 @@ const StudentMakeSubmission = () => {
 
     return (
         <div>
-            <h3>{title} Submission</h3>
-            <h5>Due Date:{endDate}</h5>
+
+            <Typography variant='h4'>{title} Submission</Typography>
+            <h5>Due Date: {endDate}</h5>
             <h5>Time Remaining: {dateDiff} Days</h5>
             <h1>{childData}</h1>
             <ImageUpload title={title} submittedDate={submittedDate} studentId={studentId} />

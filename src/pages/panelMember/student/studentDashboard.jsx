@@ -9,13 +9,14 @@ import StudentMakeSubmission from '../../student/StudentMakeSubmission';
 
 const useStyles = makeStyles({
   root: {
-    width: '100%',
-    marginTop: '20px'
+    marginTop: '20px',
+    marginLeft: '100px',
+    marginRight: '100px'
   },
   root1: {
     marginTop: '20px',
-    marginLeft: '150px',
-    marginRight: '150px',
+    marginLeft: '180px',
+    marginRight: '180px',
     textAlign: 'center'
   },
   bullet: {
@@ -49,30 +50,32 @@ const useStyles = makeStyles({
       
     <Card className={classes.root1}>
       <CardContent>
-        <Typography className={classes.title} color="Fantasy" gutterBottom>
-          <b>Document Submission</b>
-        </Typography>
         <StudentMakeSubmission />
         
       </CardContent>
     </Card>
-    <div>
-    {/* {refernces.map((r) => {
-            return ( */}
-    <Card className={classes.root}>
-    
-      <CardContent>
-        <Typography className={classes.title} color="Fantasy" gutterBottom>
-          <b>References</b>
-          <h4><b>Type: </b> {refernces.type}</h4>
-          <h4><b>Title: </b> {refernces.title}</h4>
-          <h4><b>Description: </b>{refernces.description}</h4>
-        </Typography>
-      </CardContent>
-      
-    </Card>
-    {/* );
-          })} */}
+    <br></br>
+    <div> 
+    <div class="card" style={{ height: "400px", overflow: 'scroll', width: "90%", marginLeft: '100px', marginRight: '100px'}} >
+    {refernces.map((references) => {
+            return (
+  <div class="card-body">
+  <h5><b>Type: </b> {refernces.type}</h5>
+    <h5><b>Title: </b> {refernces.title}</h5>
+    <h5><b>Description: </b>{refernces.description}</h5>
+  </div>
+  );
+          })}
+</div>
+    {/* <div className="card" style="width: 18rem;">
+        <div class="card-body">
+        <b>References</b>
+          <h5><b>Type: </b> {refernces.type}</h5>
+          <h5><b>Title: </b> {refernces.title}</h5>
+          <h5><b>Description: </b>{refernces.description}</h5>
+        </div>
+    </div> */}
+
     </div>
     </div>
   );

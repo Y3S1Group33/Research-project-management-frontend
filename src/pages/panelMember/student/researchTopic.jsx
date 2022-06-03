@@ -4,13 +4,15 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import axios from "axios";
 import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
+import studentRegistration from "../../../assests/researchTopic.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       margin: theme.spacing(1),
       width: '50ch',
-      marginLeft: '90px',
+      marginLeft: '75px',
     marginTop: '20px',
     },
   },
@@ -20,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   maingrid: {
-    width: 600,
-    marginLeft: '230px',
+    width: '80%',
+    marginLeft: '190px',
     marginTop: '20px'
   },
 }));
@@ -95,8 +97,12 @@ let handleSubmit = async (e) => {
   return (
     <div>
     <Card className={classes.maingrid}>
+    <Grid container justifyContent="space-around">
+
+
+<Grid item xs={4} style={{marginTop:"20px"}}>
     <form className={classes.root} onSubmit={handleSubmit} >
-    <h2>Research Topic Request</h2>
+    <h2 style={{color:"#00007b"}} >Research Topic Request</h2>
       <TextField 
       id="studentGroup" 
       label="Student Group" 
@@ -137,18 +143,23 @@ let handleSubmit = async (e) => {
       />
       <br></br>
       <div className={classes.button}>
-      <Button variant="contained" color="primary" type='submit'>
-      Create
+      <Button variant="contained" color="primary" type='submit' style={{backgroundColor:"#00007b"}}>
+      Send
       </Button>
       </div>
     </form>
-   
+    </Grid>
+    <Grid item xs={4}>
+
+    <img  className="image" src={studentRegistration} alt="60" />
+    </Grid>
+   </Grid>
     </Card>
     <div className="container">
       <br></br>
       <br></br>
       <table class="table">
-        <thead class="thead-dark">
+        <thead  style={{backgroundColor:"#00007b", color:'white', marginRight:'20px'}}>
           <tr>
             
             <th scope="col">#</th>

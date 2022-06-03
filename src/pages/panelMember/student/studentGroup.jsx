@@ -82,7 +82,7 @@ let handleSubmit = async (e) => {
 
 <Grid item xs={4} style={{marginTop:"20px"}}>
     <form className={classes.root} onSubmit={handleSubmit} >
-    <h2>Create Student Group</h2>
+    <h2 style={{color:"#00007b"}}>Create Student Group</h2>
       <TextField 
       id="groupId" 
       label="Group ID" 
@@ -132,7 +132,7 @@ let handleSubmit = async (e) => {
       />
       <br></br>
       <div className={classes.button}>
-      <Button variant="contained" color="primary" type='submit'>
+      <Button variant="contained" color="primary" style={{backgroundColor:"#00007b"}} type='submit'>
       Create
       </Button>
       </div>

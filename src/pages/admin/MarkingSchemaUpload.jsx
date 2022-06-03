@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from 'react';
+import {storage} from "../student/Firebase";
 import axios from "axios";
-import {storage} from "./Firebase";
-
 import Button from "@material-ui/core/Button";
-import Input from "@material-ui/core/Input";
+import {FormGroup} from "@mui/material";
 
-const ImageUpload = ({title,submittedDate,studentId}) => {
+const MarkingSchemaUpload = ({title}) => {
     const [fileObj, setFileObj] = useState([]);
     const [imageUrl, setImageUrl] = useState("");
 
@@ -34,7 +33,7 @@ const ImageUpload = ({title,submittedDate,studentId}) => {
                     .then((res) => {
                         console.log("imageUrl", res);
                         axios
-                            .post("https://floating-meadow-01028.herokuapp.com/api/makeSubmission", {title:title,submittedDate:submittedDate,submittedStudent:studentId,imageUrl: res,evaluation:"pending" })
+                            .post("https://floating-meadow-01028.herokuapp.com/api/markingSchema", {title:title,submittedDate:new Date(),imageUrl:res})
                             .then((response) => {
                                 console.log("Response", response.data);
                                 childToParent(res)
@@ -58,35 +57,44 @@ const ImageUpload = ({title,submittedDate,studentId}) => {
         }
     };
     return (
-        <div className="AddProduct">
-            <form>
-                <div className="AddProduct__left">
-                    <div className="AddProduct__imageContainer mb-2">
-                        {imageUrl && (
-                            <img
-                                src={imageUrl}
-                                alt="ProductImage"
-                                className="AddProduct__image img-thumbnail"
-                            />
-                        )}
-                    </div>
+        <div>
 
-                    <div className="form-group">
-                        <label htmlFor="upload" className="AddProduct__file">
-                            <Input
-                                type="file"
-                                id="upload"
-                                className="form-control"
-                                onChange={uploadSingleFile}
-                                fullWidth
-                            />
-                        </label>
+            <div className="AddProduct">
+                <form>
+                    <div className="AddProduct__left">
+                        <div className="AddProduct__imageContainer mb-2">
+                            {imageUrl && (
+                                <img
+                                    src={imageUrl}
+                                    alt="ProductImage"
+                                    className="AddProduct__image img-thumbnail"
+                                />
+                            )}
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="upload" className="AddProduct__file">
+                                <input
+                                    type="file"
+                                    id="upload"
+                                    className="form-control"
+                                    onChange={uploadSingleFile}
+                                    style={{marginLeft:"30px"}}
+                                />
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <Button onClick={uploadData} variant={"contained"} size={"medium"} color="primary" fullWidth style={{backgroundColor:"#005792", width:"60%"}}>Submit</Button>
-            </form>
+                    {/*<input*/}
+                    {/*    type="button"*/}
+                    {/*    value="submit"*/}
+                    {/*    onClick={uploadData}*/}
+                    {/*/>*/}
+                    <Button onClick={uploadData} variant={"contained"} size={"large"} color="primary" fullWidth style={{backgroundColor:"#005792"}}>Submit</Button>
+                </form>
+            </div>
+
         </div>
     );
 };
 
-export default ImageUpload;
+export default MarkingSchemaUpload;
