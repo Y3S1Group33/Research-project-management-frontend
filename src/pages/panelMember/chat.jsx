@@ -63,6 +63,7 @@ function Chat() {
               class="btn btn-outline-secondary"
               type="button"
               onClick={submitMessage}
+              style={{color:'blue'}}
             >
               Add message
             </button>
@@ -70,7 +71,7 @@ function Chat() {
         </div>
         <br></br>
         <div class="container">
-          <div class="card" style={{ height: "400px", overflow: 'scroll', width: "100%"}}>
+          <div class="card shadow-lg p-3 mb-5 bg-white rounded border border-primary" style={{ height: "400px", overflow: 'scroll', width: "100%"}}>
             {chatData.map((item, index) => {
               return (
                 <p class="card-body">
