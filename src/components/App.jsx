@@ -27,6 +27,7 @@ import SupervisorMarkingSchemes from "../pages/supervisor/supervisorMarkingSchem
 import TeamChat from "../pages/supervisor/teamChat";
 import TopicsConfirmation from "../pages/supervisor/topicsConfirmation";
 import SupervisorDocuments from "../pages/supervisor/supervisorDocuments";
+import ResearchProject from '../pages/panelMember/student/researchProject';
 
 
 export default function App() {
@@ -47,6 +48,7 @@ export default function App() {
               
               <Route exact path="/student/studentGroup" element={<StudentGroup />} />
               <Route exact path="/student/topicRequest" element={<ResearchTopic />} />
+              <Route exact path="/student/researchProject" element={<ResearchProject />} />
 
                   {/*Supervisor-Co Supervisor routes*/}
               <Route exact path="/supervisor/dashboard" element={<SupervisorDashboard />} />

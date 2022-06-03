@@ -39,10 +39,6 @@ function ResearchTopic() {
     const [status, setStatus] = useState("initial")
     const [studentGroupId, setStudentGroupId] = useState([])
 
-    const [staffId, setStaffId] = useState("")
-    const [userName, setUserName] = useState("")
-    const [role, setRole] = useState("")
-    const [SpecializedArea, setSpecializedArea] = useState("")
     const [staffs, setStaffs] = useState([])
 
 // let data1 = {

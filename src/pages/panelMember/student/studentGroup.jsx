@@ -4,6 +4,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import axios from "axios";
 import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
+import studentRegistration from "../../../assests/studentGroup.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,11 +19,12 @@ const useStyles = makeStyles((theme) => ({
   button: {
     '& > *': {
       margin: theme.spacing(1),
+      backgroundcolor: '#00007b',
     },
   },
   maingrid: {
-    width: 600,
-    marginLeft: '230px',
+    width: "90%",
+    marginLeft: '10px',
     marginTop: '20px'
   },
 }));
@@ -71,10 +74,13 @@ let handleSubmit = async (e) => {
   };
 
   return (
-    // <div className={classes.maingrid}> 
-    // <Paper className={classes.maingrid} elevation={3}>
-    
-    <Card className={classes.maingrid}>
+    <div>
+<Card className={classes.maingrid}>
+
+<Grid container justifyContent="space-around">
+
+
+<Grid item xs={4} style={{marginTop:"20px"}}>
     <form className={classes.root} onSubmit={handleSubmit} >
     <h2>Create Student Group</h2>
       <TextField 
@@ -131,8 +137,14 @@ let handleSubmit = async (e) => {
       </Button>
       </div>
     </form>
-   
-    </Card>
+    </Grid>
+    <Grid item xs={4}>
+
+    <img  className="image" src={studentRegistration} alt="60" />
+    </Grid>
+   </Grid>
+  </Card>
+  </div>
   
     
 )}
