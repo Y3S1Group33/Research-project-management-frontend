@@ -9,7 +9,7 @@ function PresentationEvaluate() {
   const [sumbissionData, setPresentationData] = useState([]);
 
   useEffect(() => {
-    fetch(`https://floating-meadow-01028.herokuapp.com/api/makeSubmission`)
+    fetch(`https://floating-meadow-01028.herokuapp.com/api/makeSubmissionAll`)
       .then((response) => response.json())
       .then((responseData) => {
         setSubmissionDetails(responseData);
