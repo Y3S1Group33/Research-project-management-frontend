@@ -49,6 +49,7 @@ function Chat() {
     <div>
       <br></br>
       <div class="container">
+        <h4 class="text-center">Communicate with panel members</h4>
         <div class="input-group mb-3">
           <input
             type="text"
