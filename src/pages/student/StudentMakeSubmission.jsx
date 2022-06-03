@@ -58,8 +58,8 @@ const StudentMakeSubmission = () => {
     return (
         <div>
             <h3>{title} Submission</h3>
-            <h5>due date:{endDate}</h5>
-            <h5>time remaining: {dateDiff} Days</h5>
+            <h5>Due Date:{endDate}</h5>
+            <h5>Time Remaining: {dateDiff} Days</h5>
             <h1>{childData}</h1>
             <ImageUpload title={title} submittedDate={submittedDate} studentId={studentId} />
         </div>

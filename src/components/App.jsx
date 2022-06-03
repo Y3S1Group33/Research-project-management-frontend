@@ -30,6 +30,7 @@ import SupervisorDocuments from "../pages/supervisor/supervisorDocuments";
 import ResearchProject from '../pages/panelMember/student/researchProject';
 import SetPanelMembers from "../pages/staff/SetPannelMembers";
 import DisplayStudentsView from "../pages/admin/DisplayStudentsView";
+import StudentDashboard from '../pages/panelMember/student/studentDashboard';
 
 
 export default function App() {
@@ -52,6 +53,7 @@ export default function App() {
               <Route exact path="/student/topicRequest" element={<ResearchTopic />} />
               <Route exact path="/student/researchProject" element={<ResearchProject />} />
               <Route exact path="/panelMember/setPanelMember" element={<SetPanelMembers />}  />
+              <Route exact path="/student/dashboard" element={<StudentDashboard />}  />
 
                   {/*Supervisor-Co Supervisor routes*/}
               <Route exact path="/supervisor/dashboard" element={<SupervisorDashboard />} />

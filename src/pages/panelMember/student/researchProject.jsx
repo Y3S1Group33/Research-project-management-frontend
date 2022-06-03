@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 import axios from "axios";
 import Card from '@material-ui/core/Card';
 import Grid from '@material-ui/core/Grid';
-import studentRegistration from "../../../assests/studentGroup.svg";
+import studentRegistration from "../../../assests/researchProject.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
