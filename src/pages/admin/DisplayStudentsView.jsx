@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
+import researchIMG from "../../../public/images/reseachs.webp";
 
 const DisplayStudentsView = () => {
     const [referenceDetails, setReferenceDetails] = useState([]);
@@ -68,8 +69,20 @@ const DisplayStudentsView = () => {
     };
 
     return (
+
         <div className="container">
             <br></br>
+
+            <div className="card text-center">
+                <div className="card-header">
+                    <h3><b>Student Details</b></h3>
+                </div>
+                <div className="card-body">
+                    <img className="card-img-top" src={researchIMG} alt="Card image cap" style={{width: '150px'}}/>
+                    <h6 className="card-title">Manage Student users who are logged in to the RPM System.</h6>
+                    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+                </div>
+            </div>
             <br></br>
             <table className="table">
                 <thead className="thead-dark">

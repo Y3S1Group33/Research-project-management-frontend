@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import {Button, TextField} from "@mui/material";
+import {Button, Card, TextField, Typography} from "@mui/material";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -38,8 +38,12 @@ const Login = () => {
     };
     return (
         <div className="container">
-            <h1 className="text-center">Login</h1>
-
+            <Typography style={{marginTop:"40px",marginBottom:"40px"}} fontWeight={"bold"} variant={"h3"} className="text-center">RPM Login</Typography>
+<Card style={{    paddingLeft: "50px",
+    paddingRight: "50px",
+    paddingTop:" 50px",
+    backgroundColor:"whiteSmoke"
+}}>
             <form className="form" >
                 <div className="form-group">
 
@@ -53,13 +57,11 @@ const Login = () => {
                     />
                 </div>
 
-
-
                 <div className="form-group">
 
                     <TextField
                         label="password"
-                        type="text"
+                        type="password"
                         fullWidth
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
@@ -68,12 +70,14 @@ const Login = () => {
                 </div>
 
                 <br></br>
-                <Button type="submit" onClick={handleSubmit} variant={"contained"} size={"large"} color={"primary"}>
+                <Button type="submit" onClick={handleSubmit} variant={"contained"} fullWidth size={"large"} color={"primary"}>
                     Login
                 </Button>
+
+                <h5 style={{marginTop:"20px"}}>Not a member? <a href="/SignUpChoose">Create Account</a>< /h5>
             </form>
             <br></br>
-
+</Card>
         </div>
     );
 };

@@ -33,6 +33,7 @@ import DisplayStudentsView from "../pages/admin/DisplayStudentsView";
 import DisplayStaffView from "../pages/admin/DisplayStaffView";
 import SignInAndSignUp from "../pages/home/SignInAndSignUp";
 import CreateMarkingSchemas from "../pages/admin/CreateMarkingSchemas";
+import AdminDashboard from "../pages/admin/AdminDashboard";
 
 
 export default function App() {
@@ -75,6 +76,8 @@ export default function App() {
                   <Route exact path="/admin/viewStudents" element={<DisplayStudentsView/>}/>
                   <Route exact path="/admin/viewStaff" element={<DisplayStaffView/>}/>
                   <Route exact path="/admin/createSchema" element={<CreateMarkingSchemas/>}/>
+                  <Route exact path="/admin/dashboard" element={<AdminDashboard />}/>
+
 
               </Routes>
 
