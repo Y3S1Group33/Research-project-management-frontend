@@ -10,7 +10,7 @@ export default function TopicsConfirmation() {
 
     let user = "SP001"
     useEffect(() => {
-        fetch(`http://localhost:5000/api/researchTopic/feedbackGiven/${user}`)
+        fetch(`https://floating-meadow-01028.herokuapp.com/api/researchTopic/feedbackGiven/${user}`)
             .then((response) => response.json())
             .then((responseData) => {
                 setTopicDetails(responseData);
@@ -19,7 +19,7 @@ export default function TopicsConfirmation() {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/researchTopic/${id}`)
+        fetch(`https://floating-meadow-01028.herokuapp.com/api/researchTopic/${id}`)
             .then((response) => response.json())
             .then((responseData) => {
                 setTopicData(responseData);
@@ -37,16 +37,18 @@ export default function TopicsConfirmation() {
         status: status,
     }
 
-    let updateStatus = async (e) => {
+    let accept = async (e) =>{
         e.preventDefault();
+        data.status = 'accepted';
         try {
             let res = await axios.put(
-                `http://localhost:5000/api/researchTopic/${id}`,
+                `https://floating-meadow-01028.herokuapp.com/api/researchTopic/${id}`,
                 data
             );
             if (res) {
                 console.log(data);
-                alert("Topic status updated successfully");
+                alert("Topic accepted successfully");
+                alert("Research group created successfully");
                 window.location.href = "/supervisor/topics";
             } else {
                 alert("Some error occured");
@@ -54,7 +56,27 @@ export default function TopicsConfirmation() {
         } catch (err) {
             console.log(err);
         }
-    };
+
+    }
+    let reject = async (e) =>{
+        e.preventDefault();
+        data.status = 'rejected';
+        try {
+            let res = await axios.put(
+                `https://floating-meadow-01028.herokuapp.com/api/researchTopic/${id}`,
+                data
+            );
+            if (res) {
+                console.log(data);
+                alert("Topic rejected successfully");
+                window.location.href = "/supervisor/topics";
+            } else {
+                alert("Some error occured");
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     return (
         <div className="container">
@@ -88,40 +110,33 @@ export default function TopicsConfirmation() {
                                 <button
                                     type="button"
                                     class="btn btn-primary"
-                                    onClick={() => setID(item._id)}
-                                >
-                                    Add topic evaluation
-                                </button>
-                                <button
-                                    type="button"
-                                    className="btn btn-primary"
                                     data-toggle="modal"
-                                    data-target="#exampleModalCenter"
+                                    data-target="#newModalCenter"
                                     onClick={() => setID(item._id)}
                                 >
-                                    Add topic evaluation
+                                    Confirmation
                                 </button>
 
                                 <div
-                                    class="modal fade"
-                                    id="exampleModalCenter"
-                                    tabindex="-1"
+                                    className="modal fade"
+                                    id="newModalCenter"
+                                    tabIndex="-1"
                                     role="dialog"
                                     aria-labelledby="exampleModalCenterTitle"
                                     aria-hidden="true"
                                 >
                                     <div
-                                        class="modal-dialog modal-dialog-centered"
+                                        className="modal-dialog modal-dialog-centered"
                                         role="document"
                                     >
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">
-                                                    Evaluate Topic Selection
+                                        <div className="modal-content">
+                                            <div className="modal-header">
+                                                <h5 className="modal-title" id="exampleModalLongTitle">
+                                                    Select the Confirmation
                                                 </h5>
                                                 <button
                                                     type="button"
-                                                    class="close"
+                                                    className="close"
                                                     data-dismiss="modal"
                                                     aria-label="Close"
                                                     onClick={() => setID(item._id)}
@@ -129,31 +144,38 @@ export default function TopicsConfirmation() {
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
-                                            <div class="modal-body">
-                                                <label>Enter the Feedback</label>
-                                                <input
-                                                    placeholder="enter your feedback"
-                                                    type="text"
-                                                    className="form-control"
-                                                    id="roomType"
-                                                    onChange={(e) => setFeedback(e.target.value)}
-                                                    required
-                                                />
+                                            <div className="modal-body">
+                                                <div className="col text-center">
+                                                    <button
+                                                        type="button"
+                                                        className="btn btn-primary"
+                                                        data-toggle="modal"
+                                                        data-target="#newModalCenter"
+                                                        onClick={accept}
+                                                    >
+                                                        Accept
+                                                    </button>
+                                                </div>
+                                                    <br/>
+                                                <div className="col text-center">
+                                                    <button
+                                                        type="button"
+                                                        className="btn btn-danger"
+                                                        data-toggle="modal"
+                                                        data-target="#newModalCenter"
+                                                        onClick={reject}
+                                                    >
+                                                        Reject
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="modal-footer">
+                                            <div className="modal-footer">
                                                 <button
                                                     type="button"
-                                                    class="btn btn-secondary"
+                                                    className="btn btn-secondary"
                                                     data-dismiss="modal"
                                                 >
                                                     Close
-                                                </button>
-                                                <button
-                                                    type="button"
-                                                    class="btn btn-primary"
-                                                    onClick={submitFeedback}
-                                                >
-                                                    Save changes
                                                 </button>
                                             </div>
                                         </div>
