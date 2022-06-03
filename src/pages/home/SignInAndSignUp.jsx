@@ -37,6 +37,7 @@ const SignInAndSignUp = () => {
 
     };
     return (
+        <div className={"loginForm"}>
         <div id="login-form-wrap">
 
             <form id="login-form">
@@ -54,6 +55,7 @@ const SignInAndSignUp = () => {
             <div id="create-account-wrap">
                 <p>Not a member? <a href="/SignUpChoose">Create Account</a>< /p>
             </div>
+        </div>
         </div>
     );
 };

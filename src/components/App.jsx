@@ -70,7 +70,7 @@ export default function App() {
               <Route exact path="/SignUpChoose" element={<SignUpChoose/>}/>
               <Route exact path="/makeSubmission" element={<StudentMakeSubmission/>}/>
               <Route exact path="/createSubmission" element={<AdminCreateSubmission/>}/>
-              <Route exact path="/login" element={<SignInAndSignUp />}/>
+              <Route exact path="/login" element={<Login />}/>
                   <Route exact path="/admin/viewStudents" element={<DisplayStudentsView/>}/>
                   <Route exact path="/admin/viewStaff" element={<DisplayStaffView/>}/>
 
