@@ -7,7 +7,7 @@ import {useEffect} from "react";
 export default function SupervisorDashboard() {
     const [team, setTeams] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/api/researchGroup/`)
+        fetch(`https://floating-meadow-01028.herokuapp.com/api/researchGroup/`)
             .then((response) => response.json())
             .then((responseData) => {
                 setTeams(responseData);
@@ -18,7 +18,7 @@ export default function SupervisorDashboard() {
     const [topic, setTopics] = useState([]);
     let user = "SP001"
     useEffect(() => {
-        fetch(`http://localhost:5000/api/researchTopic/feedbackGiven/${user}`)
+        fetch(`https://floating-meadow-01028.herokuapp.com/api/researchTopic/feedbackGiven/${user}`)
             .then((response) => response.json())
             .then((responseData) => {
                 setTopics(responseData);

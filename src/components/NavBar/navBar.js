@@ -23,7 +23,7 @@ let handleLogout = () =>{
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
         <div className="container-fluid">
           <a className="navbar-brand " href="/">
             RPM
@@ -125,6 +125,35 @@ let handleLogout = () =>{
             </ul>
             )}
 
+            {/*Student*/}
+            {(loggedUser == null) && (
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <a className="nav-link" aria-current="page" href="/student/dashboard">
+                  Dashboard
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link" aria-current="page" href="/student/studentGroup">
+                  Student Group
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link" aria-current="page" href="/student/topicRequest">
+                  Research Topic
+                </a>
+              </li>
+
+              <li className="nav-item">
+                <a className="nav-link" aria-current="page" href="/student/researchProject">
+                  Project Status
+                </a>
+              </li>
+
+            </ul>
+            )}
             {/*admin-student-staff*/}
 
             {(loggedUser == "admin") && (

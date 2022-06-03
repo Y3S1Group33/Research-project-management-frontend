@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import presentationIMG from "../../../public/images/presentations.webp";
 import researchIMG from "../../../public/images/reseachs.webp";
 import submissionsIMG from "../../../public/images/submission.webp";
+import Chat from "./dashChat";
 
 export default function dashboard() {
   const [submissionDetails, setSubmissionDetails] = useState([]);
@@ -72,7 +73,7 @@ export default function dashboard() {
     <div class="container" style={{ marginTop: "20px" }}>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
-          <div class="card h-100">
+          <div class="card h-100 shadow-lg p-3 mb-5 bg-white rounded border border-primary">
             <img src={presentationIMG} class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">References</h5>
@@ -142,7 +143,7 @@ export default function dashboard() {
         </div>
 
         <div class="col">
-          <div class="card h-100">
+          <div class="card h-100 shadow-lg p-3 mb-5 bg-white rounded border border-primary">
             <img src={researchIMG} class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Research groups</h5>
@@ -211,7 +212,7 @@ export default function dashboard() {
           </div>
         </div>
         <div class="col">
-          <div class="card h-100">
+          <div class="card h-100 shadow-lg p-3 mb-5 bg-white rounded border border-primary">
             <img src={submissionsIMG} class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">Topic Requests</h5>
@@ -282,6 +283,7 @@ export default function dashboard() {
           </div>
         </div>
       </div>
+      <Chat />
     </div>
   );
 }
