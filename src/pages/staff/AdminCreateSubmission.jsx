@@ -16,7 +16,7 @@ const AdminCreateSubmission = () => {
 
 
     const postAdminSubmission=()=>{
-        axios.post("http://localhost:5000/api/adminSubmission",{
+        axios.post("https://floating-meadow-01028.herokuapp.com/api/adminSubmission",{
             title,
             startDate,
             endDate

@@ -2,16 +2,21 @@ import React, { useEffect, useState } from "react";
 
 function NavBar() {
 
-  const [loggedUser, setLoggedUser] = useState([]);
+  const [loggedUser, setLoggedUser] = useState("");
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("loggedInUser"));
     if (user) {
-      setLoggedUser(user);
+      setLoggedUser(user[0].role);
     }
   }, []);
 
-  console.log(loggedUser)
+  
+let handleLogout = () =>{
+  localStorage.removeItem('loggedInUser');
+    alert("Logged out successfuly!")
+    window.location.href="/login";
+}
 
   return (
     <div>
@@ -35,7 +40,7 @@ function NavBar() {
 
           {/* panel member */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          {(loggedUser.role == "Admin") && (
+          {(loggedUser == "panelMember") && (
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
              <li className="nav-item">
                <a className="nav-link" aria-current="page" href="/panelMember/dashboard">
@@ -77,18 +82,13 @@ function NavBar() {
             {/*  </li>*/}
             {/*  )}*/}
             {/*  */}
-             {(loggedUser !== null) && (
-            <li className="nav-item">
-             <a className="nav-link" href="/login">
-             Login
-            </a>
-            </li>
-             )} 
+             
 
             
 
             {/*supervisor*/}
-            {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {(loggedUser == "supervisor") && (
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="/supervisor/dashboard">
                   Dashboard
@@ -119,7 +119,8 @@ function NavBar() {
                 </a>
               </li>
 
-            </ul> */}
+            </ul>
+            )}
 
             
             <div className="dropdown">
@@ -147,6 +148,21 @@ function NavBar() {
             
           </div>
         </div>
+        {(loggedUser == null) && (
+            <li className="nav-item">
+             <a className="nav-link" href="/login">
+             Login
+            </a>
+            </li>
+             )} 
+
+            {(loggedUser !== null) && (
+            <li className="nav-item">
+             <button className="nav-link" onClick={handleLogout}>
+             Logout
+            </button>
+            </li>
+             )}
       </nav>
     </div>
   );
