@@ -17,11 +17,20 @@ export default function App() {
 
       <Router>
               <Routes>
+                  //Panel member routes
               <Route exact path="/panelMember/topics" element={<TopicsEvaluate />} />
               <Route exact path="/panelMember/reference" element={<Reference />} />
               <Route exact path="/panelMember/dashboard" element={<PanelMemberDashboard />} />
               <Route exact path="/panelMember/chat" element={<PanelMemberChat />} />
-              
+
+                  //Supervisor/Co Supervisor routes
+              <Route exact path="/supervisor/dashboard" element={<SupervisorDashboard />} />
+              <Route exact path="/supervisor/topics" element={<SupervisorTopicsEvaluate />} />
+              <Route exact path="/supervisor/teams" element={<Teams />} />
+              <Route exact path="/supervisor/documentEvaluation" element={<DocumentEvaluation />} />
+
+
+
               </Routes>
           </Router>
     </div>
