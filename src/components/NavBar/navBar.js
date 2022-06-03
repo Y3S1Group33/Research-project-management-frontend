@@ -8,7 +8,7 @@ function NavBar() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand " href="/">
-            HMS
+            RPM
           </a>
 
           <button
@@ -27,32 +27,32 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">
+                <a className="nav-link" aria-current="page" href="/panelMember/dashboard">
                   Dashboard
                 </a>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">
+                <a className="nav-link" aria-current="page" href="/panelMember/chat">
                   Teams
                 </a>
               </li>
 
               <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="/panelMember/topics">
-                 Topic Request
+                 Topic Evaluation
                 </a>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">
-                  Documet Evaluate
+                <a className="nav-link" aria-current="page" href="/panelMember/presentation">
+                  Presentation Evaluation
                 </a>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/">
-                  Marking Schemes
+                <a className="nav-link" aria-current="page" href="/panelMember/reference">
+                  References
                 </a>
               </li>
 

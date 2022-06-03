@@ -52,7 +52,7 @@ function ResearchTopic() {
 // }
 
 const cosup = staffs.filter(staffs => 
-    staffs.role == "supervisor" || staffs.role == "cosupervisor");
+    staffs.role == "supervisor" || staffs.role == "coSupervisor");
 
 let data = {
     studentGroupId: studentGroupId,
