@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {TextField, Typography, Button, Card, FormGroup} from "@mui/material";
 import axios from "axios";
+import presentationIMG from "../../../public/images/presentations.webp";
 const AdminCreateSubmission = () => {
 
     const [title,setTitle]=new useState("");
@@ -29,8 +30,20 @@ const AdminCreateSubmission = () => {
     }
     return (
         <div>
+            <br></br>
 
-            <FormGroup style={{marginLeft:"200px",marginRight:"200px",marginTop:"100px"}}>
+            <div className="card text-center container">
+                <div className="card-header">
+                    <h3><b>Create Submissions</b></h3>
+                </div>
+                <div className="card-body">
+                    <img className="card-img-top" src={presentationIMG} alt="Card image cap" style={{width: '150px'}}/>
+                    <h6 className="card-title">Admin can create submissions for students who are logged in to the RPM System.</h6>
+                    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+                </div>
+            </div>
+            <br></br>
+            <FormGroup style={{marginLeft:"200px",marginRight:"200px",marginTop:"10px"}}>
             <TextField
                 onChange={(e)=>{
                     setTitle(e.target.value);
