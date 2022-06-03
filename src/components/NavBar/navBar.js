@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./navBar.css"
 
 function NavBar() {
 
@@ -33,7 +32,7 @@ function NavBar() {
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/panelMember/chat">
+                <a className="nav-link" aria-current="page" href="/panelMember/chat" data-testid="teams">
                   Teams
                 </a>
               </li>
