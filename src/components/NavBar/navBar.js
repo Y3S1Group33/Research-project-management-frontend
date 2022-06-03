@@ -2,6 +2,25 @@ import React, { useEffect, useState } from "react";
 
 function NavBar() {
 
+  const [loggedUser, setLoggedUser] = useState("");
+  const [loggedUserName, setLoggedUserName] = useState("");
+  
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (user) {
+      setLoggedUser(user[0].role);
+      setLoggedUserName(user[0].userName);
+    }
+  }, []);
+
+  
+let handleLogout = () =>{
+  localStorage.removeItem('loggedInUser');
+    alert("Logged out successfuly!")
+    window.location.href="/login";
+}
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,42 +43,39 @@ function NavBar() {
 
           {/* panel member */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            {/*<ul className="navbar-nav me-auto mb-2 mb-lg-0">*/}
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" aria-current="page" href="/panelMember/dashboard">*/}
-            {/*      Dashboard*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
+          {(loggedUser == "panelMember") && (
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+             <li className="nav-item">
+               <a className="nav-link" aria-current="page" href="/panelMember/dashboard">
+                 Dashboard
+               </a>
+             </li>
 
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" aria-current="page" href="/panelMember/chat">*/}
-            {/*      Teams*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
+             <li className="nav-item">
+               <a className="nav-link" aria-current="page" href="/panelMember/chat">
+                 Teams
+               </a>
+             </li>
 
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" aria-current="page" href="/panelMember/topics">*/}
-            {/*     Topic Evaluation*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
+             <li className="nav-item">
+               <a className="nav-link" aria-current="page" href="/panelMember/topics">
+                Topic Evaluation
+               </a>
+             </li>
 
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" aria-current="page" href="/panelMember/presentation">*/}
-            {/*      Presentation Evaluation*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
+             <li className="nav-item">
+               <a className="nav-link" aria-current="page" href="/panelMember/presentation">
+                 Presentation Evaluation
+               </a>
+             </li>
 
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" aria-current="page" href="/panelMember/reference">*/}
-            {/*      References*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
-
-            {/*  /!*<li className="nav-item">*!/*/}
-            {/*  /!*  <a className="nav-link" href="/reservations">*!/*/}
-            {/*  /!*    Reservations*!/*/}
-            {/*  /!*  </a>*!/*/}
-            {/*  /!*</li>*!/*/}
+             <li className="nav-item">
+               <a className="nav-link" aria-current="page" href="/panelMember/reference">
+                 References
+               </a>
+             </li> 
+             </ul>
+             )}
 
             {/*  /!* {(loggedUser.role == "Admin") && (*/}
             {/*  <li className="nav-item">*/}
@@ -69,17 +85,12 @@ function NavBar() {
             {/*  </li>*/}
             {/*  )}*/}
             {/*  */}
-            {/*  {(loggedUser !== null) && (*/}
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" href="/login">*/}
-            {/*      Login*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
-            {/*  )} *!/*/}
+             
 
-            {/*</ul>*/}
+            
 
             {/*supervisor*/}
+            {(loggedUser == "supervisor") && (
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="/supervisor/dashboard">
@@ -112,6 +123,7 @@ function NavBar() {
               </li>
 
             </ul>
+            )}
 
             
             <div className="dropdown">
@@ -123,8 +135,8 @@ function NavBar() {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                
-                <span className="nav-values"> 5 </span>
+                {loggedUserName}
+                <span className="nav-values"></span>
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a className="dropdown-item" href="/profile">
@@ -139,6 +151,21 @@ function NavBar() {
             
           </div>
         </div>
+        {(loggedUser == null) && (
+            <li className="nav-item">
+             <a className="nav-link" href="/login">
+             Login
+            </a>
+            </li>
+             )} 
+
+            {(loggedUser !== null) && (
+            <li className="nav-item">
+             <button className="nav-link" onClick={handleLogout}>
+             Logout
+            </button>
+            </li>
+             )}
       </nav>
     </div>
   );
