@@ -9,6 +9,7 @@ import TopicsEvaluate from '../pages/panelMember/topicsEvaluate'
 import Reference from '../pages/panelMember/reference'
 import PanelMemberDashboard from '../pages/panelMember/dashboard'
 import PanelMemberChat from '../pages/panelMember/chat'
+import PresentationEvaluate from '../pages/panelMember/presentationEvaluate'
 
 export default function App() {
   return (
@@ -22,13 +23,13 @@ export default function App() {
               <Route exact path="/panelMember/reference" element={<Reference />} />
               <Route exact path="/panelMember/dashboard" element={<PanelMemberDashboard />} />
               <Route exact path="/panelMember/chat" element={<PanelMemberChat />} />
+               <Route exact path="/panelMember/presentation" element={<PresentationEvaluate />} />
 
                   //Supervisor/Co Supervisor routes
               <Route exact path="/supervisor/dashboard" element={<SupervisorDashboard />} />
               <Route exact path="/supervisor/topics" element={<SupervisorTopicsEvaluate />} />
               <Route exact path="/supervisor/teams" element={<Teams />} />
               <Route exact path="/supervisor/documentEvaluation" element={<DocumentEvaluation />} />
-
 
 
               </Routes>
