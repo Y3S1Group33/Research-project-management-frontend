@@ -9,9 +9,14 @@ import StudentMakeSubmission from '../../student/StudentMakeSubmission';
 
 const useStyles = makeStyles({
   root: {
-    width: '40%',
-    marginLeft: '200px',
+    width: '100%',
     marginTop: '20px'
+  },
+  root1: {
+    marginTop: '20px',
+    marginLeft: '150px',
+    marginRight: '150px',
+    textAlign: 'center'
   },
   bullet: {
     display: 'inline-block',
@@ -42,7 +47,7 @@ const useStyles = makeStyles({
   return (
       <div>
       
-    <Card className={classes.root}>
+    <Card className={classes.root1}>
       <CardContent>
         <Typography className={classes.title} color="Fantasy" gutterBottom>
           <b>Document Submission</b>
@@ -52,22 +57,22 @@ const useStyles = makeStyles({
       </CardContent>
     </Card>
     <div>
-    {refernces.map((r) => {
-            return (
+    {/* {refernces.map((r) => {
+            return ( */}
     <Card className={classes.root}>
     
       <CardContent>
         <Typography className={classes.title} color="Fantasy" gutterBottom>
           <b>References</b>
-          <h4><b>Type: </b> {r.type}</h4>
-          <h4><b>Title: </b> {r.title}</h4>
-          <h4><b>Description: </b>{r.description}</h4>
+          <h4><b>Type: </b> {refernces.type}</h4>
+          <h4><b>Title: </b> {refernces.title}</h4>
+          <h4><b>Description: </b>{refernces.description}</h4>
         </Typography>
       </CardContent>
       
     </Card>
-    );
-          })}
+    {/* );
+          })} */}
     </div>
     </div>
   );
