@@ -9,7 +9,7 @@ export default function SupervisorMarkingSchemes() {
     const [sumbissionData, setPresentationData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/markingSchema`)
+        fetch(`https://floating-meadow-01028.herokuapp.com/api/markingSchema`)
             .then((response) => response.json())
             .then((responseData) => {
                 setSubmissionDetails(responseData);

@@ -43,7 +43,7 @@ export default function SupervisorDocuments() {
             );
             if (res) {
                 console.log(data);
-                alert("Presentation feedback added successfully");
+                alert("document submission marks added successfully");
                 window.location.href = "/panelMember/presentation";
             } else {
                 alert("Some error occured");

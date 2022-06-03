@@ -12,7 +12,7 @@ export default function SupervisorTeams() {
 
     let user = "SP001"
     useEffect(() => {
-        fetch(`http://localhost:5000/api/researchGroup/`)
+        fetch(`https://floating-meadow-01028.herokuapp.com/api/researchGroup/`)
             .then((response) => response.json())
             .then((responseData) => {
                 setTopicDetails(responseData);
@@ -21,7 +21,7 @@ export default function SupervisorTeams() {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/chatData`)
+        fetch(`https://floating-meadow-01028.herokuapp.com/api/chatData`)
             .then((response) => response.json())
             .then((responseData) => {
                 setChatData(responseData);
@@ -37,7 +37,7 @@ export default function SupervisorTeams() {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/researchGroup/${id}`)
+        fetch(`https://floating-meadow-01028.herokuapp.com/api/researchGroup/${id}`)
             .then((response) => response.json())
             .then((responseData) => {
                 setTopicData(responseData);
@@ -58,7 +58,7 @@ export default function SupervisorTeams() {
     let submitMessage = async (e) => {
         e.preventDefault();
         try {
-            let res = await axios.post("http://localhost:5000/api/chatData", datanew);
+            let res = await axios.post("https://floating-meadow-01028.herokuapp.com/api/chatData", datanew);
             if (res) {
                 console.log(data);
                 window.location.href = "/supervisor/teams";
