@@ -177,13 +177,13 @@ let handleLogout = () =>{
                   </li>
 
                   <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="/panelMember/presentation">
+                    <a className="nav-link" aria-current="page" href="/createSubmission">
                       Create Submissions
                     </a>
                   </li>
 
                   <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="/panelMember/reference">
+                    <a className="nav-link" aria-current="page" href="/admin/createSchema">
                       Create Marking Schemas
                     </a>
                   </li>
