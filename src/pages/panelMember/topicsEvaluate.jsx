@@ -9,7 +9,7 @@ function TopicsEvaluate() {
   const [topicData, setTopicData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/researchTopic`)
+    fetch(`https://floating-meadow-01028.herokuapp.com/api/researchTopic`)
       .then((response) => response.json())
       .then((responseData) => {
         setTopicDetails(responseData);
@@ -18,7 +18,7 @@ function TopicsEvaluate() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/researchTopic/${id}`)
+    fetch(`https://floating-meadow-01028.herokuapp.com/api/researchTopic/${id}`)
       .then((response) => response.json())
       .then((responseData) => {
         setTopicData(responseData);
@@ -40,7 +40,7 @@ function TopicsEvaluate() {
     e.preventDefault();
     try {
       let res = await axios.put(
-        `http://localhost:5000/api/researchTopic/${id}`,
+        `https://floating-meadow-01028.herokuapp.com/api/researchTopic/${id}`,
         data
       );
       if (res) {

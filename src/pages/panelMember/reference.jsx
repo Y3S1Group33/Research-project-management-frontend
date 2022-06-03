@@ -11,7 +11,7 @@ function Reference() {
   const [referenceData, setReferenceData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/reference`)
+    fetch(`https://floating-meadow-01028.herokuapp.com/api/reference`)
       .then((response) => response.json())
       .then((responseData) => {
         setReferenceDetails(responseData);
@@ -20,7 +20,7 @@ function Reference() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/reference/${id}`)
+    fetch(`https://floating-meadow-01028.herokuapp.com/api/reference/${id}`)
       .then((response) => response.json())
       .then((responseData) => {
         setReferenceData(responseData);
@@ -38,7 +38,7 @@ function Reference() {
     e.preventDefault();
     try {
       let res = await axios.put(
-        `http://localhost:5000/api/reference/${id}`,
+        `https://floating-meadow-01028.herokuapp.com/api/reference/${id}`,
         data
       );
       if (res) {
@@ -56,7 +56,7 @@ function Reference() {
   const deleteReference = () => {
     if (window.confirm("Do you want to delete record")) {
       axios
-        .delete(`http://localhost:5000/api/reference/${id}`)
+        .delete(`https://floating-meadow-01028.herokuapp.com/api/reference/${id}`)
         .then((res) => {
           alert("Deleted successfuly");
           window.location.href = "/panelMember/reference";
@@ -69,7 +69,7 @@ function Reference() {
   let addReferences = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("http://localhost:5000/api/reference", data);
+      let res = await axios.post("https://floating-meadow-01028.herokuapp.com/api/reference", data);
       if (res) {
         console.log(data);
         alert("Reference created successfully");

@@ -9,7 +9,7 @@ function PresentationEvaluate() {
   const [sumbissionData, setPresentationData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/makeSubmission`)
+    fetch(`https://floating-meadow-01028.herokuapp.com/api/makeSubmission`)
       .then((response) => response.json())
       .then((responseData) => {
         setSubmissionDetails(responseData);
@@ -18,7 +18,7 @@ function PresentationEvaluate() {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/makeSubmission/${id}`)
+    fetch(`https://floating-meadow-01028.herokuapp.com/api/makeSubmission/${id}`)
       .then((response) => response.json())
       .then((responseData) => {
         setPresentationData(responseData);
@@ -38,7 +38,7 @@ function PresentationEvaluate() {
     e.preventDefault();
     try {
       let res = await axios.put(
-        `http://localhost:5000/api/makeSubmission/${id}`,
+        `https://floating-meadow-01028.herokuapp.com/api/makeSubmission/${id}`,
         data
       );
       if (res) {
