@@ -10,6 +10,22 @@ import Reference from '../pages/panelMember/reference'
 import PanelMemberDashboard from '../pages/panelMember/dashboard'
 import PanelMemberChat from '../pages/panelMember/chat'
 import PresentationEvaluate from '../pages/panelMember/presentationEvaluate'
+import Login from "../pages/home/Login";
+import StudentSignUp from "../pages/student/StudentSignUp";
+import StaffSignUp from "../pages/staff/StaffSignUp";
+import SignUpChoose from "../pages/home/SignUpChoose";
+import StudentMakeSubmission from "../pages/student/StudentMakeSubmission";
+import AdminCreateSubmission from "../pages/staff/AdminCreateSubmission";
+
+
+//supervisor co supervisor
+import SupervisorDashboard from "../pages/supervisor/supervisorDashboard";
+import SupervisorTeams from "../pages/supervisor/supervisorTeams";
+import SupervisorMarkingSchemes from "../pages/supervisor/supervisorMarkingSchemes";
+import TeamChat from "../pages/supervisor/teamChat";
+import TopicsConfirmation from "../pages/supervisor/topicsConfirmation";
+import SupervisorDocuments from "../pages/supervisor/supervisorDocuments";
+
 
 export default function App() {
   return (
@@ -18,12 +34,30 @@ export default function App() {
 
       <Router>
               <Routes>
+                  {/*Panel member routes*/}
               <Route exact path="/panelMember/topics" element={<TopicsEvaluate />} />
               <Route exact path="/panelMember/reference" element={<Reference />} />
               <Route exact path="/panelMember/dashboard" element={<PanelMemberDashboard />} />
               <Route exact path="/panelMember/chat" element={<PanelMemberChat />} />
               <Route exact path="/panelMember/presentation" element={<PresentationEvaluate />} />
-              
+
+                  {/*Supervisor-Co Supervisor routes*/}
+              <Route exact path="/supervisor/dashboard" element={<SupervisorDashboard />} />
+              <Route exact path="/supervisor/teams" element={<SupervisorTeams />} />
+              <Route exact path="/supervisor/topics" element={<TopicsConfirmation />} />
+              <Route exact path="/supervisor/document" element={<SupervisorDocuments />} />
+              <Route exact path="/supervisor/markingSchemes" element={<SupervisorMarkingSchemes />} />
+              <Route exact path="/supervisor/teams/chat/:id" element={<TeamChat />} />
+
+                  {/*Admin/ student/ staff routes*/}
+
+              <Route exact path="/registerStudent" element={<StudentSignUp/>}/>
+              <Route exact path="/registerStaff" element={<StaffSignUp/>}/>
+              <Route exact path="/register" element={<SignUpChoose/>}/>
+              <Route exact path="/makeSubmission" element={<StudentMakeSubmission/>}/>
+              <Route exact path="/createSubmission" element={<AdminCreateSubmission/>}/>
+              <Route exact path="/login" element={<Login/>}/>
+
               </Routes>
           </Router>
     </div>

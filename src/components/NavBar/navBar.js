@@ -24,58 +24,92 @@ function NavBar() {
 
           {/* panel member */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            {/*<ul className="navbar-nav me-auto mb-2 mb-lg-0">*/}
+            {/*  <li className="nav-item">*/}
+            {/*    <a className="nav-link" aria-current="page" href="/panelMember/dashboard">*/}
+            {/*      Dashboard*/}
+            {/*    </a>*/}
+            {/*  </li>*/}
+
+            {/*  <li className="nav-item">*/}
+            {/*    <a className="nav-link" aria-current="page" href="/panelMember/chat">*/}
+            {/*      Teams*/}
+            {/*    </a>*/}
+            {/*  </li>*/}
+
+            {/*  <li className="nav-item">*/}
+            {/*    <a className="nav-link" aria-current="page" href="/panelMember/topics">*/}
+            {/*     Topic Evaluation*/}
+            {/*    </a>*/}
+            {/*  </li>*/}
+
+            {/*  <li className="nav-item">*/}
+            {/*    <a className="nav-link" aria-current="page" href="/panelMember/presentation">*/}
+            {/*      Presentation Evaluation*/}
+            {/*    </a>*/}
+            {/*  </li>*/}
+
+            {/*  <li className="nav-item">*/}
+            {/*    <a className="nav-link" aria-current="page" href="/panelMember/reference">*/}
+            {/*      References*/}
+            {/*    </a>*/}
+            {/*  </li>*/}
+
+            {/*  /!*<li className="nav-item">*!/*/}
+            {/*  /!*  <a className="nav-link" href="/reservations">*!/*/}
+            {/*  /!*    Reservations*!/*/}
+            {/*  /!*  </a>*!/*/}
+            {/*  /!*</li>*!/*/}
+
+            {/*  /!* {(loggedUser.role == "Admin") && (*/}
+            {/*  <li className="nav-item">*/}
+            {/*    <a className="nav-link" href="/admin">*/}
+            {/*      Admin panel*/}
+            {/*    </a>*/}
+            {/*  </li>*/}
+            {/*  )}*/}
+            {/*  */}
+            {/*  {(loggedUser !== null) && (*/}
+            {/*  <li className="nav-item">*/}
+            {/*    <a className="nav-link" href="/login">*/}
+            {/*      Login*/}
+            {/*    </a>*/}
+            {/*  </li>*/}
+            {/*  )} *!/*/}
+
+            {/*</ul>*/}
+
+            {/*supervisor*/}
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/panelMember/dashboard">
+                <a className="nav-link" aria-current="page" href="/supervisor/dashboard">
                   Dashboard
                 </a>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/panelMember/chat" data-testid="teams">
+                <a className="nav-link" aria-current="page" href="/supervisor/teams">
                   Teams
                 </a>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/panelMember/topics">
-                 Topic Evaluation
+                <a className="nav-link" aria-current="page" href="/supervisor/topics">
+                  Topic Confirmation
                 </a>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/panelMember/presentation">
-                  Presentation Evaluation
+                <a className="nav-link" aria-current="page" href="/supervisor/document">
+                  Document Evaluation
                 </a>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" aria-current="page" href="/panelMember/reference">
-                  References
+                <a className="nav-link" aria-current="page" href="/supervisor/markingSchemes">
+                  Marking Schemes
                 </a>
               </li>
-
-              {/*<li className="nav-item">*/}
-              {/*  <a className="nav-link" href="/reservations">*/}
-              {/*    Reservations*/}
-              {/*  </a>*/}
-              {/*</li>*/}
-
-              {/* {(loggedUser.role == "Admin") && (
-              <li className="nav-item">
-                <a className="nav-link" href="/admin">
-                  Admin panel
-                </a>
-              </li>
-              )}
-              
-              {(loggedUser !== null) && (
-              <li className="nav-item">
-                <a className="nav-link" href="/login">
-                  Login
-                </a>
-              </li>
-              )} */}
 
             </ul>
 
