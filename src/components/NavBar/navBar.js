@@ -171,7 +171,7 @@ let handleLogout = () =>{
                   </li>
 
                   <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="/panelMember/topics">
+                    <a className="nav-link" aria-current="page" href="/admin/viewStaff">
                       Staff Details
                     </a>
                   </li>
