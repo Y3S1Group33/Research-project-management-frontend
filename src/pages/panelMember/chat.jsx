@@ -5,6 +5,14 @@ import axios from "axios";
 function Chat() {
   const [chatData, setChatData] = useState([]);
   const [message, setMessage] = useState("");
+  const [loggedUser, setLoggedUser] = useState("");
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (user) {
+      setLoggedUser(user[0].staffId);
+    }
+  }, []);
 
   useEffect(() => {
     fetch(`https://floating-meadow-01028.herokuapp.com/api/panelChat`)
@@ -16,7 +24,7 @@ function Chat() {
   }, []);
 
   let data = {
-    userId: "u001",
+    userId: loggedUser,
     message: message,
     date: new Date(),
   };
