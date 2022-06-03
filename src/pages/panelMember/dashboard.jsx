@@ -46,6 +46,16 @@ export default function dashboard() {
       </div>
     </div>
   </div>
+
+  <div class="col">
+    <div class="card h-100">
+      <img src={submissionsIMG} class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">References</h5>
+        <p class="card-text">References card body</p>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
   )

@@ -62,7 +62,7 @@ function Chat() {
         </div>
         <br></br>
         <div class="container">
-          <div class="card" style={{ maxHeight: "1500px" }}>
+          <div class="card" style={{ height: "400px", overflow: 'scroll', width: "100%"}}>
             {chatData.map((item, index) => {
               return (
                 <p class="card-body">

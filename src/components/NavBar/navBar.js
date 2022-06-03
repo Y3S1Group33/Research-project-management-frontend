@@ -2,6 +2,17 @@ import React, { useEffect, useState } from "react";
 
 function NavBar() {
 
+  const [loggedUser, setLoggedUser] = useState([]);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (user) {
+      setLoggedUser(user);
+    }
+  }, []);
+
+  console.log(loggedUser)
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,42 +35,39 @@ function NavBar() {
 
           {/* panel member */}
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            {/*<ul className="navbar-nav me-auto mb-2 mb-lg-0">*/}
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" aria-current="page" href="/panelMember/dashboard">*/}
-            {/*      Dashboard*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
+          {(loggedUser.role == "Admin") && (
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+             <li className="nav-item">
+               <a className="nav-link" aria-current="page" href="/panelMember/dashboard">
+                 Dashboard
+               </a>
+             </li>
 
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" aria-current="page" href="/panelMember/chat">*/}
-            {/*      Teams*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
+             <li className="nav-item">
+               <a className="nav-link" aria-current="page" href="/panelMember/chat">
+                 Teams
+               </a>
+             </li>
 
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" aria-current="page" href="/panelMember/topics">*/}
-            {/*     Topic Evaluation*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
+             <li className="nav-item">
+               <a className="nav-link" aria-current="page" href="/panelMember/topics">
+                Topic Evaluation
+               </a>
+             </li>
 
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" aria-current="page" href="/panelMember/presentation">*/}
-            {/*      Presentation Evaluation*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
+             <li className="nav-item">
+               <a className="nav-link" aria-current="page" href="/panelMember/presentation">
+                 Presentation Evaluation
+               </a>
+             </li>
 
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" aria-current="page" href="/panelMember/reference">*/}
-            {/*      References*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
-
-            {/*  /!*<li className="nav-item">*!/*/}
-            {/*  /!*  <a className="nav-link" href="/reservations">*!/*/}
-            {/*  /!*    Reservations*!/*/}
-            {/*  /!*  </a>*!/*/}
-            {/*  /!*</li>*!/*/}
+             <li className="nav-item">
+               <a className="nav-link" aria-current="page" href="/panelMember/reference">
+                 References
+               </a>
+             </li> 
+             </ul>
+             )}
 
             {/*  /!* {(loggedUser.role == "Admin") && (*/}
             {/*  <li className="nav-item">*/}
@@ -69,18 +77,18 @@ function NavBar() {
             {/*  </li>*/}
             {/*  )}*/}
             {/*  */}
-            {/*  {(loggedUser !== null) && (*/}
-            {/*  <li className="nav-item">*/}
-            {/*    <a className="nav-link" href="/login">*/}
-            {/*      Login*/}
-            {/*    </a>*/}
-            {/*  </li>*/}
-            {/*  )} *!/*/}
+             {(loggedUser !== null) && (
+            <li className="nav-item">
+             <a className="nav-link" href="/login">
+             Login
+            </a>
+            </li>
+             )} 
 
-            {/*</ul>*/}
+            
 
             {/*supervisor*/}
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {/* <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <a className="nav-link" aria-current="page" href="/supervisor/dashboard">
                   Dashboard
@@ -111,7 +119,7 @@ function NavBar() {
                 </a>
               </li>
 
-            </ul>
+            </ul> */}
 
             
             <div className="dropdown">
