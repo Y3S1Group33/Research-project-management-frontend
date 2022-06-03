@@ -5,6 +5,14 @@ import axios from "axios";
 function Chat() {
   const [chatData, setChatData] = useState([]);
   const [message, setMessage] = useState("");
+  const [loggedUser, setLoggedUser] = useState("");
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    if (user) {
+      setLoggedUser(user[0].staffId);
+    }
+  }, []);
 
   useEffect(() => {
     fetch(`https://floating-meadow-01028.herokuapp.com/api/panelChat`)
@@ -16,7 +24,7 @@ function Chat() {
   }, []);
 
   let data = {
-    userId: "u001",
+    userId: loggedUser,
     message: message,
     date: new Date(),
   };
@@ -41,6 +49,7 @@ function Chat() {
     <div>
       <br></br>
       <div class="container">
+        <h4 class="text-center">Communicate with panel members</h4>
         <div class="input-group mb-3">
           <input
             type="text"
@@ -55,6 +64,7 @@ function Chat() {
               class="btn btn-outline-secondary"
               type="button"
               onClick={submitMessage}
+              style={{color:'blue'}}
             >
               Add message
             </button>
@@ -62,7 +72,7 @@ function Chat() {
         </div>
         <br></br>
         <div class="container">
-          <div class="card" style={{ height: "400px", overflow: 'scroll', width: "100%"}}>
+          <div class="card shadow-lg p-3 mb-5 bg-white rounded border border-primary" style={{ height: "400px", overflow: 'scroll', width: "100%"}}>
             {chatData.map((item, index) => {
               return (
                 <p class="card-body">
