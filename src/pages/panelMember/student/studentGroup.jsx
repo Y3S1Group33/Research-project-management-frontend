@@ -61,7 +61,7 @@ let data = {
 let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("http://localhost:5000/api/studentGroup", data);
+      let res = await axios.post("https://floating-meadow-01028.herokuapp.com/api/studentGroup", data);
       if (res) {
         console.log(data);
         alert("Group Created Successfully");

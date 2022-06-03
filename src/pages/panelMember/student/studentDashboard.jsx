@@ -34,15 +34,15 @@ const useStyles = makeStyles({
 
  function StudentDashboard() {
   const classes = useStyles();
-  const [refernces, setReferences] = useState([]);
+  const [references, setReferences] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/reference`)
+    fetch(`https://floating-meadow-01028.herokuapp.com/api/reference`)
       .then((response) => response.json())
       .then((responseData) => {
         setReferences(responseData);
       });
-    console.log(refernces);
+    console.log(references);
   }, []);
 
   return (
@@ -55,18 +55,23 @@ const useStyles = makeStyles({
       </CardContent>
     </Card>
     <br></br>
-    <div> 
-    <div class="card" style={{ height: "400px", overflow: 'scroll', width: "90%", marginLeft: '100px', marginRight: '100px'}} >
-    {refernces.map((references) => {
+    <h2 style={{marginLeft:'110px'}}>References List</h2>
+    <br></br>
+    <div style={{ height: "400px", overflow: 'scroll', width: "90%", marginLeft: '100px', marginRight: '100px'}}> 
+    {references.map((references) => {
             return (
-  <div class="card-body">
-  <h5><b>Type: </b> {refernces.type}</h5>
-    <h5><b>Title: </b> {refernces.title}</h5>
-    <h5><b>Description: </b>{refernces.description}</h5>
-  </div>
-  );
-          })}
+    <div className="card"  >
+    
+      <div className="card-body">
+      <h5><b>Type: </b> {references.type}</h5>
+          <h5><b>Title: </b> {references.title}</h5>
+          {/* <h5><b>Description: </b>{references.description}</h5> */}
+        <a href={references.description} class="card-link">View</a>
+    </div>
+  
 </div>
+);
+          })}
     {/* <div className="card" style="width: 18rem;">
         <div class="card-body">
         <b>References</b>

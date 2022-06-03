@@ -71,7 +71,7 @@ let data = {
 // }, [])
 
 useEffect(() => {
-    fetch(`http://localhost:5000/api/staff`)
+    fetch(`https://floating-meadow-01028.herokuapp.com/api/staff`)
       .then((response) => response.json())
       .then((responseData) => {
         setStaffs(responseData);
@@ -82,7 +82,7 @@ useEffect(() => {
 let handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("http://localhost:5000/api/researchTopic", data);
+      let res = await axios.post("https://floating-meadow-01028.herokuapp.com/api/researchTopic", data);
       if (res) {
         console.log(data);
         alert("Topic Request send Successfully");
