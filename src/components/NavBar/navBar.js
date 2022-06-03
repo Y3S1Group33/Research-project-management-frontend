@@ -3,11 +3,14 @@ import React, { useEffect, useState } from "react";
 function NavBar() {
 
   const [loggedUser, setLoggedUser] = useState("");
+  const [loggedUserName, setLoggedUserName] = useState("");
+  
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("loggedInUser"));
     if (user) {
       setLoggedUser(user[0].role);
+      setLoggedUserName(user[0].userName);
     }
   }, []);
 
@@ -132,8 +135,8 @@ let handleLogout = () =>{
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                
-                <span className="nav-values"> 5 </span>
+                {loggedUserName}
+                <span className="nav-values"></span>
               </button>
               <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a className="dropdown-item" href="/profile">
