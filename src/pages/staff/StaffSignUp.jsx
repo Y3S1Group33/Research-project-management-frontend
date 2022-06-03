@@ -21,7 +21,7 @@ const StaffSignUp = () => {
 
 
     const postStaffUser=()=>{
-        axios.post("http://localhost:5000/api/staff",{
+        axios.post("https://floating-meadow-01028.herokuapp.com/api/staff",{
             staffId,
             userName,
             email,

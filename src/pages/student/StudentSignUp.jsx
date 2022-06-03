@@ -19,7 +19,7 @@ const StudentSignUp = () => {
     const [confPassword,setConfPassword]=useState("");
 
     const postStudent=()=>{
-        axios.post("http://localhost:5000/api/student",{
+        axios.post("https://floating-meadow-01028.herokuapp.com/api/student",{
             studentId,
             email,
             userName,

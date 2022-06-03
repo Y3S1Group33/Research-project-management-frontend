@@ -9,7 +9,7 @@ const SetPanelMembers = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/researchTopic/initial`)
+        fetch(`https://floating-meadow-01028.herokuapp.com/api/researchTopic/initial`)
             .then((response) => response.json())
             .then((responseData) => {
                 setSubmissionDetails(responseData);
@@ -27,7 +27,7 @@ const SetPanelMembers = () => {
         e.preventDefault();
         try {
             let res = await axios.put(
-                `http://localhost:5000/api/researchTopic/${e.target.value}`,
+                `https://floating-meadow-01028.herokuapp.com/api/researchTopic/${e.target.value}`,
                 data
             );
             if (res) {
