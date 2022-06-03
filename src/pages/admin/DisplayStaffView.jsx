@@ -1,5 +1,5 @@
-import React from 'react';
-import {useEffect, useState} from "@types/react";
+import React, {useEffect, useState} from 'react';
+
 import axios from "axios";
 
 const DisplayStaffView = () => {
@@ -10,7 +10,7 @@ const DisplayStaffView = () => {
     const [role, setRole] = useState("");
     const [specializedArea, setSpecializedArea] = useState("");
     const [contactNumber, setContactNumber] = useState("");
-
+    const [staffId, setStaffId] = useState("");
     const [referenceData, setReferenceData] = useState([]);
 
     useEffect(() => {
@@ -33,6 +33,7 @@ const DisplayStaffView = () => {
 
 
     let data = {
+        staffId,
         userName,
         email,
         contactNumber,
@@ -50,7 +51,7 @@ const DisplayStaffView = () => {
             if (res) {
                 console.log(data);
                 alert("student updated successfully");
-                window.location.href = "/admin/viewStudents";
+                window.location.href = "/admin/viewStaff";
             } else {
                 alert("Some error occured");
             }
@@ -65,7 +66,7 @@ const DisplayStaffView = () => {
                 .delete(`https://floating-meadow-01028.herokuapp.com/api/staff/${id}`)
                 .then((res) => {
                     alert("Deleted successfuly");
-                    window.location.href = "/admin/viewStudents";
+                    window.location.href = "/admin/viewStaff";
                 });
         } else {
             alert("Record not deleted");
@@ -79,17 +80,13 @@ const DisplayStaffView = () => {
             <table className="table">
                 <thead className="thead-dark">
                 <tr>
-                    userName,
-                    email,
-                    contactNumber,
-                    role,
-                    specializedArea
                     <th scope="col">#</th>
                     <th scope="col">user Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Contact Number</th>
                     <th scope="col">Role</th>
-                    <th scope="col">specialized Area</th>
+                    <th scope="col">Specialized Area</th>
+                    <th scope="col">Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -101,7 +98,8 @@ const DisplayStaffView = () => {
                             <td>{item.email}</td>
                             <td>{item.contactNumber}</td>
                             <td>{item.role}</td>
-                            <td>{item.role}</td>
+                            <td>{item.specializedArea}</td>
+
                             <td>
                                 <button
                                     type="button"
@@ -125,10 +123,11 @@ const DisplayStaffView = () => {
                                         className="modal-dialog modal-dialog-centered"
                                         role="document"
                                     >
+
                                         <div className="modal-content">
                                             <div className="modal-header">
                                                 <h5 className="modal-title" id="exampleModalLongTitle">
-                                                    Update Student
+                                                    Update Member
                                                 </h5>
                                                 <button
                                                     type="button"
@@ -141,25 +140,13 @@ const DisplayStaffView = () => {
                                                 </button>
                                             </div>
                                             <div className="modal-body">
-                                                <label>Enter Student ID</label>
+                                                <label>Enter Staff ID</label>
                                                 <input
-                                                    placeholder="Student ID"
+                                                    placeholder="Staff ID"
                                                     type="text"
                                                     className="form-control"
                                                     id="roomType"
-                                                    onChange={(e) => setStudentId(e.target.value)}
-                                                    required
-                                                />
-                                            </div>
-
-                                            <div className="modal-body">
-                                                <label>Enter Email</label>
-                                                <input
-                                                    placeholder="Email"
-                                                    type="text"
-                                                    className="form-control"
-                                                    id="roomType"
-                                                    onChange={(e) => setEmail(e.target.value)}
+                                                    onChange={(e) => setStaffId(e.target.value)}
                                                     required
                                                 />
                                             </div>
@@ -171,14 +158,39 @@ const DisplayStaffView = () => {
                                                     type="text"
                                                     className="form-control"
                                                     id="roomType"
-                                                    onChange={(e) => setUserName(e.target.value)}
+                                                    onChange={(e) => setStaffId(e.target.value)}
                                                     required
                                                 />
                                             </div>
+
                                             <div className="modal-body">
                                                 <label>Enter Contact Number</label>
                                                 <input
                                                     placeholder="Contact Number"
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="roomType"
+                                                    onChange={(e) => setUserName(e.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div className="modal-body">
+                                                <label>Enter Role</label>
+                                                <input
+                                                    placeholder="Role"
+                                                    type="text"
+                                                    className="form-control"
+                                                    id="roomType"
+                                                    onChange={(e) => setEmail(e.target.value)}
+                                                    required
+                                                />
+                                            </div>
+
+                                            <div className="modal-body">
+                                                <label>Enter specialized Area</label>
+                                                <input
+                                                    placeholder="specializedArea"
                                                     type="text"
                                                     className="form-control"
                                                     id="roomType"

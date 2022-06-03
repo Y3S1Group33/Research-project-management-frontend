@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {TextField, Typography, Button, Card} from "@mui/material";
+import {TextField, Typography, Button, Card, FormGroup} from "@mui/material";
 import axios from "axios";
 const AdminCreateSubmission = () => {
 
@@ -30,6 +30,7 @@ const AdminCreateSubmission = () => {
     return (
         <div>
 
+            <FormGroup style={{marginLeft:"200px",marginRight:"200px",marginTop:"100px"}}>
             <TextField
                 onChange={(e)=>{
                     setTitle(e.target.value);
@@ -66,7 +67,8 @@ const AdminCreateSubmission = () => {
                 label={"End Date"}
                 name="endDate" />
             <br />
-            <Button onClick={postAdminSubmission} variant={"contained"} size={"large"} color={"primary"}>Create Submission</Button>
+            <Button onClick={postAdminSubmission} variant={"contained"} size={"large"}  color="primary" style={{backgroundColor:"#005792"}} >Create Submission</Button>
+            </FormGroup>
         </div>
     );
 };

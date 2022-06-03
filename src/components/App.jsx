@@ -30,6 +30,9 @@ import SupervisorDocuments from "../pages/supervisor/supervisorDocuments";
 import ResearchProject from '../pages/panelMember/student/researchProject';
 import SetPanelMembers from "../pages/staff/SetPannelMembers";
 import DisplayStudentsView from "../pages/admin/DisplayStudentsView";
+import DisplayStaffView from "../pages/admin/DisplayStaffView";
+import SignInAndSignUp from "../pages/home/SignInAndSignUp";
+import CreateMarkingSchemas from "../pages/admin/CreateMarkingSchemas";
 
 
 export default function App() {
@@ -65,11 +68,13 @@ export default function App() {
 
               <Route exact path="/registerStudent" element={<StudentSignUp/>}/>
               <Route exact path="/registerStaff" element={<StaffSignUp/>}/>
-              <Route exact path="/register" element={<SignUpChoose/>}/>
+              <Route exact path="/SignUpChoose" element={<SignUpChoose/>}/>
               <Route exact path="/makeSubmission" element={<StudentMakeSubmission/>}/>
               <Route exact path="/createSubmission" element={<AdminCreateSubmission/>}/>
-              <Route exact path="/login" element={<Login/>}/>
+              <Route exact path="/login" element={<Login />}/>
                   <Route exact path="/admin/viewStudents" element={<DisplayStudentsView/>}/>
+                  <Route exact path="/admin/viewStaff" element={<DisplayStaffView/>}/>
+                  <Route exact path="/admin/createSchema" element={<CreateMarkingSchemas/>}/>
 
               </Routes>
 
