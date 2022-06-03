@@ -31,7 +31,7 @@ const ImageUpload = ({title,submittedDate,studentId}) => {
                     .then((res) => {
                         console.log("imageUrl", res);
                         axios
-                            .post("http://localhost:5000/api/makeSubmission", {title:title,submittedDate:submittedDate,submittedStudent:studentId,imageUrl: res,evaluation:"pending" })
+                            .post("https://floating-meadow-01028.herokuapp.com/api/makeSubmission", {title:title,submittedDate:submittedDate,submittedStudent:studentId,imageUrl: res,evaluation:"pending" })
                             .then((response) => {
                                 console.log("Response", response.data);
                                 childToParent(res)
@@ -82,7 +82,6 @@ const ImageUpload = ({title,submittedDate,studentId}) => {
                 <input
                     type="button"
                     value="submit"
-                    type="button"
                     onClick={uploadData}
                 />
             </form>

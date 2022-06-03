@@ -35,7 +35,7 @@ const StudentMakeSubmission = () => {
     //setDatesRemaining(dateDiff)
     useEffect(()=>{
 
-        axios.get("http://localhost:5000/api/adminLatestSubmission").then(res=>{
+        axios.get("https://floating-meadow-01028.herokuapp.com/api/adminLatestSubmission").then(res=>{
             console.log(res.data[0].submittedStudent)
             setTitle(res.data[0].title)
             setStartDate(res.data[0].startDate)

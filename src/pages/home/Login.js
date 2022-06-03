@@ -9,15 +9,15 @@ const Login = () => {
     let handleSubmit = async (e) => {
         e.preventDefault();
 
-        const StudentResponse= await axios.get("http://localhost:5000/api/student/"+email);
-        const StaffResponse=await axios.get("http://localhost:5000/api/staff/"+email);
+        const StudentResponse= await axios.get("https://floating-meadow-01028.herokuapp.com/api/student/"+email);
+        const StaffResponse=await axios.get("https://floating-meadow-01028.herokuapp.com/api/staff/"+email);
         console.log("res:"+ StudentResponse.data);
         console.log("staff res:"+ StaffResponse.data);
         if(StudentResponse.data!==null && email!==""){
             if (password === StudentResponse.data[0].password) {
                 alert("Logged In Successfully");
                 localStorage.setItem("loggedInUser", JSON.stringify(StudentResponse.data));
-                //window.location.href = "/";
+                window.location.href = "/student/dashboard";
             } else {
                 alert("Incorrect password");
 
@@ -25,11 +25,11 @@ const Login = () => {
         }else if(StaffResponse.data!==null && email!==""){
             if (password === StaffResponse.data[0].password) {
                 alert("Logged In Successfully");
-                //window.location.href = "/";
-                localStorage.setItem("user", JSON.stringify(res.data));
+                localStorage.setItem("loggedInUser", JSON.stringify(StaffResponse.data));
+                console.log(StaffResponse.data[0].role)
+                window.location.href = `/${StaffResponse.data[0].role}/dashboard`;
             } else {
                 alert("Incorrect password for staff");
-                return null
             }
         }else{
             alert("please try again!");

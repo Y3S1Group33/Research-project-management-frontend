@@ -7,7 +7,7 @@ function Chat() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/panelChat`)
+    fetch(`https://floating-meadow-01028.herokuapp.com/api/panelChat`)
       .then((response) => response.json())
       .then((responseData) => {
         setChatData(responseData);
@@ -24,7 +24,7 @@ function Chat() {
   let submitMessage = async (e) => {
     e.preventDefault();
     try {
-      let res = await axios.post("http://localhost:5000/api/panelChat", data);
+      let res = await axios.post("https://floating-meadow-01028.herokuapp.com/api/panelChat", data);
       if (res) {
         console.log(data);
         window.location.href = "/panelMember/chat";
@@ -62,7 +62,7 @@ function Chat() {
         </div>
         <br></br>
         <div class="container">
-          <div class="card" style={{ maxHeight: "1500px" }}>
+          <div class="card" style={{ height: "400px", overflow: 'scroll', width: "100%"}}>
             {chatData.map((item, index) => {
               return (
                 <p class="card-body">
