@@ -10,6 +10,12 @@ import Reference from '../pages/panelMember/reference'
 import PanelMemberDashboard from '../pages/panelMember/dashboard'
 import PanelMemberChat from '../pages/panelMember/chat'
 import PresentationEvaluate from '../pages/panelMember/presentationEvaluate'
+import Login from "../pages/home/Login";
+import StudentSignUp from "../pages/student/StudentSignUp";
+import StaffSignUp from "../pages/staff/StaffSignUp";
+import SignUpChoose from "../pages/home/SignUpChoose";
+import StudentMakeSubmission from "../pages/student/StudentMakeSubmission";
+import AdminCreateSubmission from "../pages/staff/AdminCreateSubmission";
 
 
 //supervisor co supervisor
@@ -43,6 +49,14 @@ export default function App() {
               <Route exact path="/supervisor/markingSchemes" element={<SupervisorMarkingSchemes />} />
               <Route exact path="/supervisor/teams/chat/:id" element={<TeamChat />} />
 
+                  {/*Admin/ student/ staff routes*/}
+
+              <Route exact path="/registerStudent" element={<StudentSignUp/>}/>
+              <Route exact path="/registerStaff" element={<StaffSignUp/>}/>
+              <Route exact path="/register" element={<SignUpChoose/>}/>
+              <Route exact path="/makeSubmission" element={<StudentMakeSubmission/>}/>
+              <Route exact path="/createSubmission" element={<AdminCreateSubmission/>}/>
+              <Route exact path="/login" element={<Login/>}/>
 
               </Routes>
           </Router>
