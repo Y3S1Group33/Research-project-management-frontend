@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import researchIMG from "../../../public/images/reseachs.webp";
 
 export default function SupervisorMarkingSchemes() {
     const [submissionDetails, setSubmissionDetails] = useState([]);
@@ -20,6 +21,16 @@ export default function SupervisorMarkingSchemes() {
     return (
         <div className="container">
             <br></br>
+            <div class="card text-center">
+  <div class="card-header">
+  <h3><b>View Marking Schemas</b></h3>
+  </div>
+  <div class="card-body">
+    <img class="card-img-top" src={researchIMG} alt="Card image cap" style={{width: '150px'}}/>
+    <h6 class="card-title">Get marking schemas students submissions.</h6>
+    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+  </div>
+</div>
             <br></br>
             <table class="table">
                 <thead class="thead-dark">
