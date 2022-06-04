@@ -198,7 +198,7 @@ let handleLogout = () =>{
             
             <div className="dropdown">
               <button
-                className="btn btn-secondary dropdown-toggle"
+                className="btn btn-secondary"
                 type="button"
                 id="dropdownMenuButton"
                 data-toggle="dropdown"
@@ -208,14 +208,14 @@ let handleLogout = () =>{
                 {loggedUserName}
                 <span className="nav-values"></span>
               </button>
-              <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a className="dropdown-item" href="/profile">
-                  Profile
-                </a>
-                <a className="dropdown-item" href="/logout">
-                  Logout
-                </a>
-              </div>
+              {/*<div className="dropdown-menu" aria-labelledby="dropdownMenuButton">*/}
+              {/*  <a className="dropdown-item" href="/profile">*/}
+              {/*    Profile*/}
+              {/*  </a>*/}
+              {/*  <a className="dropdown-item" href="/logout">*/}
+              {/*    Logout*/}
+              {/*  </a>*/}
+              {/*</div>*/}
               
             </div>
             
@@ -231,7 +231,7 @@ let handleLogout = () =>{
 
             {(loggedUser !== null) && (
             <li className="nav-item">
-             <button className="nav-link" onClick={handleLogout}>
+             <button className="nav-link btn btn-secondary" onClick={handleLogout}>
              Logout
             </button>
             </li>
