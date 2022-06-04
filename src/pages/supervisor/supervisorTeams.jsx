@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import presentationIMG from "../../../public/images/presentations.webp";
 
 export default function SupervisorTeams() {
 
@@ -74,6 +75,16 @@ export default function SupervisorTeams() {
     return (
         <div className="container">
             <br></br>
+            <div class="card text-center">
+  <div class="card-header">
+  <h3><b>Superevisor teams chat</b></h3>
+  </div>
+  <div class="card-body">
+    <img class="card-img-top" src={presentationIMG} alt="Card image cap" style={{width: '150px'}}/>
+    <h6 class="card-title">Communicate with team members and increase collaboration.</h6>
+    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+  </div>
+</div>
             <br></br>
             <table class="table">
                 <thead class="thead-dark">
