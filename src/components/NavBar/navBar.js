@@ -181,6 +181,11 @@ let handleLogout = () =>{
                       Create Submissions
                     </a>
                   </li>
+                  <li className="nav-item">
+                    <a className="nav-link" aria-current="page" href="/admin/setPanelMembers">
+                      Add Panel Members
+                    </a>
+                  </li>
 
                   <li className="nav-item">
                     <a className="nav-link" aria-current="page" href="/admin/createSchema">
