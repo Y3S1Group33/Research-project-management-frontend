@@ -37,6 +37,7 @@ const MarkingSchemaUpload = ({title}) => {
                             .then((response) => {
                                 console.log("Response", response.data);
                                 childToParent(res)
+
                             })
                             .catch((error) => {
                                 console.log("Error", error.response);

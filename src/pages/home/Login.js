@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from "axios";
 import {Button, Card, TextField, Typography} from "@mui/material";
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -15,7 +16,14 @@ const Login = () => {
         console.log("staff res:"+ StaffResponse.data);
         if(StudentResponse.data!==null && email!==""){
             if (password === StudentResponse.data[0].password) {
-                alert("Logged In Successfully");
+
+               await Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Logged In Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 localStorage.setItem("loggedInUser", JSON.stringify(StudentResponse.data));
                 window.location.href = "/student/dashboard";
             } else {
@@ -24,7 +32,13 @@ const Login = () => {
             }
         }else if(StaffResponse.data!==null && email!==""){
             if (password === StaffResponse.data[0].password) {
-                alert("Logged In Successfully");
+              await Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Logged In Successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 localStorage.setItem("loggedInUser", JSON.stringify(StaffResponse.data));
                 console.log(StaffResponse.data[0].role)
                 window.location.href = `/${StaffResponse.data[0].role}/dashboard`;

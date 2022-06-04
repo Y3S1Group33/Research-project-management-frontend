@@ -6,6 +6,7 @@ import studentRegistration from "../../assests/studentRegistration.svg";
 import "./CSS/index.css"
 import SignNav from "./SignNav"
 import axios from "axios";
+import Swal from "sweetalert2";
 // import PasswordField from "material-ui-password-field";
 
 
@@ -25,8 +26,16 @@ const StudentSignUp = () => {
             userName,
             contactNumber,
             password
-        }).then(res=>{
+        }).then(async res => {
+            await Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Student Registered Successfully',
+                showConfirmButton: false,
+                timer: 2500
+            })
             console.log(res)
+            window.location.href="/"
         }).catch(err=>{
             console.log(err)
         })

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, MenuItem, Select} from "@mui/material";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const SetPanelMembers = () => {
@@ -33,7 +34,13 @@ const SetPanelMembers = () => {
             if (res) {
 
                 console.log(data);
-                alert("Status updated successfully");
+                await Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Status updated',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 window.location.href = "/panelMember/setPanelMember";
             } else {
                 alert("Some error occured");

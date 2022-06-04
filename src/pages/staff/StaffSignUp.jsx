@@ -5,6 +5,7 @@ import staffRegistration from "../../assests/staffRegistration.svg"
 import "../student/CSS/index.css"
 import SignNav from "../student/SignNav";
 import axios from "axios";
+import Swal from "sweetalert2";
 // import PasswordField from "material-ui-password-field";
 
 const StaffSignUp = () => {
@@ -30,8 +31,16 @@ const StaffSignUp = () => {
             role,
             specializedArea
 
-        }).then(res=>{
+        }).then(async res=>{
+            await Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'User Registered Successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
             console.log(res)
+            window.location.href="/"
         }).catch(err=>{
             console.log(err)
         })

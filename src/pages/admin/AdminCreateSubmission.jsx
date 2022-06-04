@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {TextField, Typography, Button, Card, FormGroup} from "@mui/material";
 import axios from "axios";
 import presentationIMG from "../../../public/images/presentations.webp";
+import Swal from "sweetalert2";
 const AdminCreateSubmission = () => {
 
     const [title,setTitle]=new useState("");
@@ -21,8 +22,15 @@ const AdminCreateSubmission = () => {
             title,
             startDate,
             endDate
-        }).then(res=>{
+        }).then( async res=>{
             console.log(res)
+            await Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Submission Added',
+                showConfirmButton: false,
+                timer: 1500
+            })
         }).catch(err=>{
             console.log(err)
         })

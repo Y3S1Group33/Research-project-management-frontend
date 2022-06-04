@@ -18,7 +18,7 @@ function NavBar() {
 let handleLogout = () =>{
   localStorage.removeItem('loggedInUser');
     alert("Logged out successfuly!")
-    window.location.href="/login";
+    window.location.href="/";
 }
 
   return (
@@ -223,7 +223,7 @@ let handleLogout = () =>{
         </div>
         {(loggedUser == null) && (
             <li className="nav-item">
-             <a className="nav-link" href="/login">
+             <a className="nav-link" href="/">
              Login
             </a>
             </li>
