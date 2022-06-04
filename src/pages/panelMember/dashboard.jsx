@@ -103,7 +103,7 @@ export default function dashboard() {
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLongTitle">
-                        Assigned Research Groups
+                        Uploaded references
                       </h5>
                       <button
                         type="button"
