@@ -65,6 +65,7 @@ let handleSubmit = async (e) => {
       if (res) {
         console.log(data);
         alert("Group Created Successfully");
+        window.location.href="/student/dashboard"
       } else {
         alert("Some error occured");
       }
@@ -88,6 +89,7 @@ let handleSubmit = async (e) => {
       label="Group ID" 
       variant="outlined" 
       onChange={(e) => setGroupId(e.target.value)}
+      required
       />
       <br></br>
       <TextField 
@@ -95,7 +97,7 @@ let handleSubmit = async (e) => {
       label="Group Name" 
       variant="outlined" 
       onChange={(e) => setGroupName(e.target.value)}
-
+      required
       />
       <br></br>
       <TextField 
@@ -103,7 +105,7 @@ let handleSubmit = async (e) => {
       label="Student 1" 
       variant="outlined" 
       onChange={(e) => setStd1(e.target.value)}
-
+      required
       />
       <br></br>
       <TextField 
@@ -111,7 +113,7 @@ let handleSubmit = async (e) => {
       label="Student 2" 
       variant="outlined" 
       onChange={(e) => setStd2(e.target.value)}
-      
+      required
 
       />
       <br></br>
@@ -120,7 +122,7 @@ let handleSubmit = async (e) => {
       label="Student 3" 
       variant="outlined" 
       onChange={(e) => setStd3(e.target.value)}
-
+      required
       />
       <br></br>
       <TextField 
@@ -128,7 +130,7 @@ let handleSubmit = async (e) => {
       label="Student 4" 
       variant="outlined" 
       onChange={(e) => setStd4(e.target.value)}
-
+      required
       />
       <br></br>
       <div className={classes.button}>

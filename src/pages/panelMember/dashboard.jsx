@@ -103,7 +103,7 @@ export default function dashboard() {
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLongTitle">
-                        Assigned Research Groups
+                        Uploaded references
                       </h5>
                       <button
                         type="button"
@@ -127,6 +127,12 @@ export default function dashboard() {
                       })}
                     </div>
                     <div class="modal-footer">
+                    <a
+                        class="btn btn-secondary"
+                        href="/panelMember/reference"
+                      >
+                        Go to page
+                      </a>
                       <button
                         type="button"
                         class="btn btn-secondary"
@@ -134,6 +140,7 @@ export default function dashboard() {
                       >
                         Close
                       </button>
+
                     </div>
                   </div>
                 </div>
@@ -197,6 +204,7 @@ export default function dashboard() {
                       })}
                     </div>
                     <div class="modal-footer">
+                      
                       <button
                         type="button"
                         class="btn btn-secondary"
@@ -268,6 +276,12 @@ export default function dashboard() {
                       })}
                     </div>
                     <div class="modal-footer">
+                    <a
+                        class="btn btn-secondary"
+                        href="/panelMember/topics"
+                      >
+                        Go to page
+                      </a>
                       <button
                         type="button"
                         class="btn btn-secondary"

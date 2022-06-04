@@ -77,6 +77,7 @@ export default function App() {
                   <Route exact path="/admin/viewStaff" element={<DisplayStaffView/>}/>
                   <Route exact path="/admin/createSchema" element={<CreateMarkingSchemas/>}/>
                   <Route exact path="/admin/dashboard" element={<AdminDashboard />}/>
+                  <Route exact path="/admin/setPanelMembers" element={<SetPanelMembers />}/>
 
 
               </Routes>

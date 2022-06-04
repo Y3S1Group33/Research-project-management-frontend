@@ -61,14 +61,6 @@ let data = {
     feedback: feedback,
     status: status
 }
-// useEffect(() => {
-//     axios.get("http://localhost:5000/api/getStaffUsersController").then(res => {
-//         console.log(res.data)
-//         setStaff(res.data)
-//     }).catch(err => {
-//         console.log(err);
-//     })
-// }, [])
 
 useEffect(() => {
     fetch(`https://floating-meadow-01028.herokuapp.com/api/staff`)
@@ -86,6 +78,7 @@ let handleSubmit = async (e) => {
       if (res) {
         console.log(data);
         alert("Topic Request send Successfully");
+        window.location.href="/student/dashboard"
       } else {
         alert("Some error occured");
       }
@@ -115,23 +108,16 @@ let handleSubmit = async (e) => {
       label="Topic" 
       variant="outlined" 
       onChange={(e) => setTopic(e.target.value)}
-
+      required
       />
-      {/* <br></br>
-      <TextField 
-      id="researchPanelId" 
-      label="Research Panel Id" 
-      variant="outlined" 
-      onChange={(e) => setResearchPanelId(e.target.value)}
-
-      /> */}
+      
       <br></br>
       <TextField 
       id="supervisor" 
       label="Supervisor" 
       variant="outlined" 
       onChange={(e) => setSupervisor(e.target.value)}
-      
+      required
 
       />
       <br></br>
@@ -140,6 +126,7 @@ let handleSubmit = async (e) => {
       label="Co-Supervisor" 
       variant="outlined" 
       onChange={(e) => setCoSupervisor(e.target.value)}
+      required
       />
       <br></br>
       <div className={classes.button}>

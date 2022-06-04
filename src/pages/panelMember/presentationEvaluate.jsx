@@ -75,7 +75,7 @@ function PresentationEvaluate() {
             <th scope="col">Title</th>
             <th scope="col">submitted Date</th>
             <th scope="col">submitted Student</th>
-            <th scope="col">imageUrl</th>
+            <th scope="col">Document</th>
             <th scope="col">evaluation</th>
             <th scope="col">Action</th>
           </tr>
