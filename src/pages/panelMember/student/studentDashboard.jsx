@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import StudentMakeSubmission from '../../student/StudentMakeSubmission';
+import studentRegistration from "../../../assests/p1.svg";
 
 const useStyles = makeStyles({
   root: {
@@ -47,15 +48,22 @@ const useStyles = makeStyles({
 
   return (
       <div>
-      
+      <div style={{ backgroundColor:"LightGray", width:'100%', padding:'5px', marginTop:'20px', borderColor:'#00007b'}}>
+    <h4 style={{ marginLeft:'20px'}}>Document Submissions</h4>
+    </div>
+    <img  className="image" src={studentRegistration} alt="60" style={{width:'600px', marginTop:'20px', marginLeft:'450px'}}/>
     <Card className={classes.root1}>
       <CardContent>
+
         <StudentMakeSubmission />
         
       </CardContent>
     </Card>
     <br></br>
-    <h2 style={{marginLeft:'110px'}}>References List</h2>
+    
+    <div style={{ backgroundColor:"LightGray", width:'100%', padding:'5px'}}>
+    <h4 style={{ marginLeft:'20px'}}>References List</h4>
+    </div>
     <br></br>
     <div style={{ height: "400px", overflow: 'scroll', width: "90%", marginLeft: '100px', marginRight: '100px'}}> 
     {references.map((references) => {
@@ -72,14 +80,6 @@ const useStyles = makeStyles({
 </div>
 );
           })}
-    {/* <div className="card" style="width: 18rem;">
-        <div class="card-body">
-        <b>References</b>
-          <h5><b>Type: </b> {refernces.type}</h5>
-          <h5><b>Title: </b> {refernces.title}</h5>
-          <h5><b>Description: </b>{refernces.description}</h5>
-        </div>
-    </div> */}
 
     </div>
     </div>
