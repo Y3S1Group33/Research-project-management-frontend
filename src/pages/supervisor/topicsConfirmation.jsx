@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import submissionsIMG from "../../../public/images/submission.webp";
 
 export default function TopicsConfirmation() {
 
@@ -81,6 +82,16 @@ export default function TopicsConfirmation() {
     return (
         <div className="container">
             <br></br>
+            <div class="card text-center">
+  <div class="card-header">
+  <h3><b>Topic confirmation</b></h3>
+  </div>
+  <div class="card-body">
+    <img class="card-img-top" src={submissionsIMG} alt="Card image cap" style={{width: '150px'}}/>
+    <h6 class="card-title">Manage students research topic requests as a supervisor.</h6>
+    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
+  </div>
+</div>
             <br></br>
             <table class="table">
                 <thead class="thead-dark">
